@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function OPBreadcrumbsCtrl(spUtil, $rootScope, $scope) {
+    var c = this;
+	var thisPage = {
+		url: '#',
+		label: $scope.page.title
+	}
+
+    if (!c.options.use_fixed_breadcrumbs) {
+        var deregister = $rootScope.$on("sp.update.breadcrumbs", function (e, list) {
+            c.breadcrumbs = list;
+        });
+
+        $scope.$on('$destroy', function () {
+            deregister();
+        });
+		
+		if (!c.breadcrumbs || c.breadcrumbs.length < 1) {
+			c.breadcrumbs = [thisPage];
+		}
+
+    } else {
+        c.breadcrumbs = c.options.fixed_breadcrumbs;
+    }
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$wds-op-breadcrumbs-linkHoverColor: darken($link-color,10%) !default;
+$wds-op-breadcrumbs-linkColor: $link-color !default;
+$wds-op-breadcrumbs-dividerColor: #323232 !default;
+$wds-op-breadcrumbs-textColor: $text-muted !default;
+
+.op_breadcrumbs {
+    font-size: 18px;
+ 		padding-top: 5px;
+  	padding-bottom: 5px;
+    letter-spacing: -0.26px;
+    cursor: default;
+
+    a {
+        color: $wds-op-breadcrumbs-linkColor;
+
+        &amp;:hover {
+            color: $wds-op-breadcrumbs-linkHoverColor;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    li {
+
+        position: relative;
+        padding-left: 10px;
+
+        &amp;:first-of-type {
+            padding-left: 0;
+        }
+
+        &amp;:last-of-type {
+            color: $wds-op-breadcrumbs-textColor;
+        }
+
+        &amp;:not(:last-of-type) {
+
+            margin-right: 14px;
+
+            &amp;:after {
+                content: "/";
+                position: absolute;
+                margin-left: 10px;
+                top: 0;
+                right: -15px;
+                color: $wds-op-breadcrumbs-dividerColor;
+            }
+        }
+    }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>md_breadcrumbs</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>MD Breadcrumbs</name>
+        <option_schema>[&#13;
+    {&#13;
+        "hint": "JSON containing the breadcrumb data",&#13;
+        "name": "fixed_breadcrumbs",&#13;
+        "section": "Data",&#13;
+        "default_value": [],&#13;
+        "label": "Fixed Breadcrumbs",&#13;
+        "type": "string"&#13;
+    },&#13;
+    {&#13;
+        "hint": "Whether to use the breadcrumbs defined in the fixed breadcrumbs",&#13;
+        "name": "use_fixed_breadcrumbs",&#13;
+        "section": "Data",&#13;
+        "default_value": "false",&#13;
+        "label": "Use Fixed Breadcrumbs",&#13;
+        "type": "boolean"&#13;
+    }&#13;
+]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+  options.use_fixed_breadcrumbs = (options.use_fixed_breadcrumbs=='true');
+
+  if (options.use_fixed_breadcrumbs) {
+    options.fixed_breadcrumbs = JSON.parse(options.fixed_breadcrumbs);
+  }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-12 02:14:15</sys_created_on>
+        <sys_id>98f957c7070f381091b7f7208c1ed027</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>MD Breadcrumbs</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_98f957c7070f381091b7f7208c1ed027</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:59</sys_updated_on>
+        <template><![CDATA[<div class="op_breadcrumbs">
+    <ul>
+        <li><a href="?">${Home}</a></li>
+        <li ng-repeat="bc in c.breadcrumbs" ng-switch on="::bc.url">
+            <span ng-switch-when="#">{{::bc.label}}</span>
+            <span ng-switch-when="undefined">{{::bc.label}}</span>
+            <span ng-switch-default><a ng-href="{{::bc.url}}">{{::bc.label}}</a></span>
+        </li>
+    </ul>
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5345066f0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_98f957c7070f381091b7f7208c1ed027</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:59</sys_created_on>
+        <sys_id>c259d8d90745011091b7f7208c1ed0f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:59</sys_updated_on>
+    </sys_claim>
+</record_update>

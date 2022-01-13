@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>global.MDTicketWidgetUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>MDTicketWidgetUtils</name>
+        <script><![CDATA[var MDTicketWidgetUtils = Class.create();
+MDTicketWidgetUtils.prototype = {
+	/**
+	 * 
+	 * @param {GlideSPScriptable} $sp SPScriptable
+	 */
+	initialize: function ($sp) {
+		if (!gs.nil($sp)) {
+			this.SP = $sp;
+		}
+	},
+
+	/**
+	 * Get combined records for given configurations
+	 * @param {TicketWidgetConfig[]}    configArr       Array of configurations
+	 * @param {Number}                  [limit]         Max number of records to retrieve. Defaults to all records
+	 * @param {TicketWidgetSortConfig}  [sort_config]   How to sort the list. Defaults to updated recently
+	 * @returns {TicketWidgetRecord[]}  Array of records
+	 */
+	getCombinedRecordsForConfigs: function (configArr, limit, sort_config, restrictToConfigID, show_inactive) {
+		var that = this;
+		var combinedRecords = [];
+
+		configArr.forEach(function (config) {
+			if (!gs.nil(restrictToConfigID) && config.id != restrictToConfigID) return;
+			combinedRecords = combinedRecords.concat(that.getRecordsForConfig(config, limit, sort_config, show_inactive));
+		});
+
+		// SORT RECORDS
+		// LIMIT RECORDS
+		if (combinedRecords.length > limit) {
+			combinedRecords = combinedRecords.slice(0, limit);
+		}
+
+
+		return combinedRecords;
+	},
+
+	/**
+	 * 
+	 * @param {TicketWidgetConfig[]} configAr Array of Configurations
+	 * @retuns {Number}     Total number of records across all given configurations
+	 */
+	getTotalRecordCountForConfigs: function (configArr, restrictToConfigID, show_inactive) {
+		var that = this;
+		var total = 0;
+
+		configArr.forEach(function (config) {
+			if (!gs.nil(restrictToConfigID) && config.id != restrictToConfigID) return;
+
+			var configTotal = that.getTotalRecordCountForConfig(config, show_inactive);
+			total += configTotal;
+		});
+
+		return total;
+	},
+
+
+	/**
+	 * Get Records for the given configuration
+	 * @param {TicketWidgetConfig}      config          Configuration
+	 * @param {Number}                  [limit]           Max number of records to return. Defaults to all records
+	 * @param {TicketWidgetSortConfig}  [sort_config]     How to sort the list. Defaults to updated recently
+	 * @returns {TicketWidgetRecord[]}  Array of records
+	 */
+	getRecordsForConfig: function (config, limit, sort_config, show_inactive) {
+		gs.debug('Getting Records for Config: ' + config.name);
+		var gr = new GlideRecord(config.table);
+		gr.addEncodedQuery(config.query);
+
+		if (show_inactive !== true) {
+			gr.addEncodedQuery(config.active_query);
+		}
+
+		if (!gs.nil(limit)) {
+			gr.setLimit(limit);
+		}
+		if (!gs.nil(sort_config)) {
+			switch (sort_config.orderBy) {
+				case 'orderBy': gr.orderBy(sort_config.value); break;
+				case 'orderByDesc': gr.orderByDesc(sort_config.value); break;
+			}
+		} else {
+			gr.orderByDesc('sys_updated_on');
+		}
+		gr.query();
+
+		//console.log('NP:ENCQUERY:' + gr.getEncodedQuery());
+
+		var ret = [];
+		while (gr.next()) {
+			// Capture standard info
+			var thisRet = {
+				sys_id: gr.getUniqueValue(),
+				short_description: gr.getUniqueValue('short_description'),
+				display_value: gr.getDisplayValue(),
+				detail_target: this._buildDetailTarget(config, gr),
+				target_window:(config.detail_target && config.detail_target.target) || '_self',
+				data_points: this._buildDataPoints(config, gr),
+				table:gr.getTableName(),
+				sys_created_on: gr.getValue('sys_created_on'),
+				sys_updated_on: gr.getValue('sys_updated_on'),
+				open_button_label: config && config.open_button_label || 'Open'
+			};
+
+			if (!gs.nil(config.approval_display)) {
+				thisRet.approval_display = config.approval_display;
+			}
+
+			// If SPScriptable has been passed in, build the widget for the record
+			if (!gs.nil(this.SP)) {
+				thisRet.widget = this.SP.getWidget(config.widget_id, {
+					item: thisRet
+				});
+			}
+
+			ret.push(thisRet);
+		}
+
+		return ret;
+	},
+
+	_buildDataPoints: function (config, gr) {
+		var ret = {};
+
+		for (var point in config.data_points) {
+			var val = null;
+			var label = null;
+
+			var thisPoint = config.data_points[point];
+
+			if (thisPoint.show_label === true) {
+				gs.warn("thisPoint : "+thisPoint);
+				label = gr.getElement(thisPoint.field).getLabel();
+			}
+
+			switch (thisPoint.type) {
+				case 'value':
+				case 'time-ago':
+					val = gr.getElement(config.data_points[point].field).toString() || null;
+					break;
+				case 'due-in':
+					val = gr.getElement(config.data_points[point].field).toString() || null;
+					break;
+
+				case 'approval_summary':
+					break;
+
+				case 'display':
+				default:
+					val = gr.getDisplayValue(thisPoint.field);
+					break;
+			}
+
+			ret[point] = {
+				type: thisPoint.type,
+				value: val,
+				label: label
+			};
+		}
+
+		// Always add the 'Type' data point
+		ret.type = {
+			type: 'display',
+			value: config.name
+		};
+
+		return ret;
+	},
+
+
+	/**
+	 * Get the Detail URL Target for the given record and config
+	 * @param {TicketWidgetConfig}  config  Configuration
+	 * @param {GlideRecord}         gr      Record
+	 * @returns {String}            Detail Target URL
+	 */
+	_buildDetailTarget: function (config, gr) {
+		switch (config.detail_target.type) {
+			case 'sp_page':
+				if(gr.getTableName() == 'asmt_assessment_instance'){
+					return '?id=' + config.detail_target.page_id + '&instance_id='+ gr.sys_id+''+'&type_id='+gr.metric_type + '';
+				}
+				else
+					return '?id=' + config.detail_target.page_id + '&table=' + gr.getTableName() + '&sys_id=' + gr.getUniqueValue();
+			case 'standard_ui':
+				return gr.getLink(true);
+			case 'url':
+				return config.detail_target.url;
+		}
+	},
+
+
+	/**
+	 * Get the total number of records for the given config
+	 * @param {TicketWidgetConfig} config Configuration
+	 * @returns {Number}    Number of Records
+	 */
+	getTotalRecordCountForConfig: function (config, show_inactive) {
+		var grAgg = new GlideAggregate(config.table);
+		grAgg.addEncodedQuery(config.query);
+		if (show_inactive !== true) {
+			grAgg.addEncodedQuery(config.active_query);
+		}
+		grAgg.setGroup(false);
+		grAgg.addAggregate('COUNT');
+		grAgg.query();
+
+		if (grAgg.next()) {
+			return Number(grAgg.getAggregate('COUNT'));
+		}
+	},
+
+	type: 'MDTicketWidgetUtils'
+};
+
+
+
+
+
+
+
+/**
+ * @typedef {Object} TicketWidgetConfig
+ * @property {String}   name        Display name of the configuration
+ * @property {String}   description Description for the configuration
+ * @property {String}   table       Table name to retrieve records from
+ * @property {String}   query       Encoded Query used to retrieve records
+ * @property {String}   widget_id   ID of the widget used to render each record
+ * @property {Object}   detail_target           Object that describes how to open the detailed information for each record
+ * @property {String}   detail_target.type      Type of target. Accepted values [sp_page|standard_ui]
+ * @property {String}   detail_target.page_id   ID of the page. Only if type is sp_page
+ * @property {Object.<string,DataPointConfig}   data_points     Data Points to show
+ *
+ */
+
+/**
+ * @typedef {Object}    DataPointConfig
+ * @property {String}   type        How to display the data. Accepted values [value|display|time-ago|due-in|approval_summary]
+ * @property {String}   field       Field name to retrieve data from
+ * @property {Boolean}  showLabel   ???
+ */
+
+/**
+ * @typedef {Object}   TicketWidgetSortConfig
+ * @property {String}  display Display Name
+ * @property {String}  value   Field Name to sort by
+ * @property {String}  orderBy Direction to sort in
+ */
+
+/**
+ * @typedef {Object}    TicketWidgetRecord
+ * @property {String}   sys_id              Sys ID of the record
+ * @property {String}   short_description   Short Description of the record
+ * @property {String}   display_value       Display Value of the record
+ * @property {String}   detail_target       URL of the detail page
+ * @property {SPWidget} widget              Widget to render the record
+ * @property {Object.<string, TicketWidgetRecordDataPoint>}    data_points  Data Points for the record
+ */
+
+/**
+ * @typedef {Object}    TicketWidgetRecordDataPoint
+ * @property {String}   type    Data Point Type (see DataPointConfig.type)
+ * @property {String}   value   Value for the data point
+ * @property {String}   label   Field Label
+ */]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-09 13:20:17</sys_created_on>
+        <sys_id>c8759a520707f01091b7f7208c1ed03a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>MDTicketWidgetUtils</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sys_script_include_c8759a520707f01091b7f7208c1ed03a</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:52</sys_updated_on>
+    </sys_script_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344eafa0000001</claim_timestamp>
+        <metadata_update_name>sys_script_include_c8759a520707f01091b7f7208c1ed03a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:52</sys_created_on>
+        <sys_id>1059d8d90745011091b7f7208c1ed00f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:52</sys_updated_on>
+    </sys_claim>
+</record_update>

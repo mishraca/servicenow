@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop">
+    <cxs_res_context_config_prop action="DELETE">
+        <active>true</active>
+        <choices/>
+        <cxs_res_context_config display_value="catalog">fa978eeddbd15810f941065bd39619dd</cxs_res_context_config>
+        <default_value/>
+        <description>Restricts searches to the named catalog. The value set below must be the title of the catalog, example: Technical Catalog</description>
+        <id>catalog_sr.catalog_name</id>
+        <name>Catalog Name</name>
+        <sys_class_name>cxs_res_context_config_prop</sys_class_name>
+        <sys_created_by>chandralok.mishra</sys_created_by>
+        <sys_created_on>2020-06-09 12:11:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b2978eeddbd15810f941065bd39619e0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Catalog Name</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>cxs_res_context_config_prop_b2978eeddbd15810f941065bd39619e0</sys_update_name>
+        <sys_updated_by>chandralok.mishra</sys_updated_by>
+        <sys_updated_on>2020-06-24 05:15:50</sys_updated_on>
+        <type>string</type>
+        <value>Service Portal Catalog</value>
+    </cxs_res_context_config_prop>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Global">global</application>
+        <file_path/>
+        <instance_id>5b1f5e18dbdbd7c46578f22ebf961963</instance_id>
+        <instance_name>dev64121</instance_name>
+        <name>cxs_res_context_config_prop_b2978eeddbd15810f941065bd39619e0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="cxs_res_context_config_prop"><cxs_res_context_config_prop action="INSERT_OR_UPDATE"><active>true</active><choices/><cxs_res_context_config display_value="catalog">fa978eeddbd15810f941065bd39619dd</cxs_res_context_config><default_value/><description>Restricts searches to the named catalog. The value set below must be the title of the catalog, example: Technical Catalog</description><id>catalog_sr.catalog_name</id><name>Catalog Name</name><sys_class_name>cxs_res_context_config_prop</sys_class_name><sys_created_by>chandralok.mishra</sys_created_by><sys_created_on>2020-06-09 12:11:26</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>b2978eeddbd15810f941065bd39619e0</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Catalog Name</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>cxs_res_context_config_prop_b2978eeddbd15810f941065bd39619e0</sys_update_name><sys_updated_by>chandralok.mishra</sys_updated_by><sys_updated_on>2020-06-24 05:15:50</sys_updated_on><type>string</type><value>Service Portal Catalog</value></cxs_res_context_config_prop></record_update>]]></payload>
+        <payload_hash>-1912409029</payload_hash>
+        <record_name>Catalog Name</record_name>
+        <reverted_from/>
+        <source>37a513be0744011091b7f7208c1ed0f2</source>
+        <source_table>sys_update_set</source_table>
+        <state>backedout</state>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-11-30 00:23:06</sys_created_on>
+        <sys_id>826613720784011091b7f7208c1ed032</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_recorded_at>17d6e39449b0000001</sys_recorded_at>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-12-02 11:18:23</sys_updated_on>
+        <type>Search Resource Context Property</type>
+        <update_guid>0558f996ffe1589000ceaeba61f4c159</update_guid>
+        <update_guid_history>0558f996ffe1589000ceaeba61f4c159:-1912409029,f6978eedc4d158104d83f78db466f3e1:1731894365</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Catalog Name">849f372f0708011091b7f7208c1ed040</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-12-02 11:18:23</sys_created_on>
+        <sys_db_object display_value="" name="cxs_res_context_config_prop">cxs_res_context_config_prop</sys_db_object>
+        <sys_id>8636b557dec94f14909d7b9a16144290</sys_id>
+        <sys_metadata>b2978eeddbd15810f941065bd39619e0</sys_metadata>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Catalog Name</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_scope_delete display_value="">3a08cd4d4e9544da90041791f25d2984</sys_scope_delete>
+        <sys_update_name>sys_metadata_delete_8636b557dec94f14909d7b9a16144290</sys_update_name>
+        <sys_update_version display_value="cxs_res_context_config_prop_b2978eeddbd15810f941065bd39619e0">826613720784011091b7f7208c1ed032</sys_update_version>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

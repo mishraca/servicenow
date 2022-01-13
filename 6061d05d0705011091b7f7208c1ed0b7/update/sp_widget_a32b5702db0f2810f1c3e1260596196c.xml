@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function() {
+	/* widget controller */
+	var c = this;
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.charts_orb {
+  color: rgb(27, 65, 97);
+}
+
+.charts_orb .orb .orb_graphic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.charts_orb .orb .orb_graphic .orb_value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.charts_orb .orb .orb_label {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1em;
+}
+.charts_orb svg {
+  width: 110px;
+  height: 110px;
+}
+.charts_orb svg circle {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 314.16, 314.16;
+  stroke-width: 5;
+  fill: transparent;
+  r: 50;
+  cx: 55;
+  cy: 55;
+}
+.charts_orb svg circle.fill {
+  stroke: #D3D3D3;
+}
+.charts_orb svg circle.progress {
+  stroke: #FF6B00;
+  transition: stroke-dashoffset 0.35s;
+  stroke-dashoffset: 214.16;
+  -webkit-animation: NAME-YOUR-ANIMATION 1.5s forwards;
+  -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+  0% {
+    stroke-dashoffset: 314.16;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pz-stats-counter</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+	$('.count').each(function () {
+		alert($(this).text());
+		$(this).prop('Counter',0).animate({
+			Counter: $(this).text()
+		}, {
+			duration: 1500,
+			easing: 'linear',
+			step: function (now) {
+				$(this).text(Math.ceil(now));
+			}
+		});
+	});
+}]]></link>
+        <name>PZ Stats COunter</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-24 03:36:13</sys_created_on>
+        <sys_id>a32b5702db0f2810f1c3e1260596196c</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_name>PZ Stats COunter</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_a32b5702db0f2810f1c3e1260596196c</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:40</sys_updated_on>
+        <template><![CDATA[<md-list class="charts_orb" layout='row' layout-align='center start'>
+  <md-list-item class="orb" ng-repeat='stats in options.statistics' layout='column'>
+    <div class="orb_graphic animated fadeInDown" layout-align='center center'>
+      <svg>
+        <circle class="fill"></circle>
+        <circle class="progress"></circle>
+      </svg>
+      <div class="orb_value count" ng-bind='stats.count'></div>
+    </div>
+    <div class="orb_label" ng-bind='stats.label'>
+    </div>
+  </md-list-item>
+</md-list>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344bc9b0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_a32b5702db0f2810f1c3e1260596196c</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:40</sys_created_on>
+        <sys_id>1d49d4d90745011091b7f7208c1ed0f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:40</sys_updated_on>
+    </sys_claim>
+</record_update>

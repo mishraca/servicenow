@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition">
+    <asmt_metric_definition action="INSERT_OR_UPDATE">
+        <display>Desktop</display>
+        <metric display_value="">6af39c3b1b2e5c10dbd0baeccc4bcbe3</metric>
+        <normalization_input>0</normalization_input>
+        <order>0</order>
+        <selected_image/>
+        <sys_class_name>asmt_metric_definition</sys_class_name>
+        <sys_created_by>sls.chandra</sys_created_by>
+        <sys_created_on>2020-08-17 06:51:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>62f39c3b1b2e5c10dbd0baeccc4bcbea</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Desktop</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>asmt_metric_definition_62f39c3b1b2e5c10dbd0baeccc4bcbea</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:54</sys_updated_on>
+        <unselected_image/>
+        <value>0</value>
+    </asmt_metric_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=62f39c3b1b2e5c10dbd0baeccc4bcbea"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#e2bc00</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>selected_image</file_name>
+        <hash>0e581cc8ae4529e97e8a4185b496a16391a265245b7c4ff88f15cd19ff99fb08</hash>
+        <image_height>225</image_height>
+        <image_width>225</image_width>
+        <size_bytes>1111</size_bytes>
+        <size_compressed>1120</size_compressed>
+        <state>available</state>
+        <sys_created_by>sls.chandra</sys_created_by>
+        <sys_created_on>2020-08-17 06:38:30</sys_created_on>
+        <sys_id>121158371b2e5c10dbd0baeccc4bcb9c</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_updated_by>sls.chandra</sys_updated_by>
+        <sys_updated_on>2020-08-17 06:51:05</sys_updated_on>
+        <table_name>ZZ_YYasmt_metric_definition</table_name>
+        <table_sys_id>62f39c3b1b2e5c10dbd0baeccc4bcbea</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="selected_image" sys_id="121158371b2e5c10dbd0baeccc4bcb9c">121158371b2e5c10dbd0baeccc4bcb9c</sys_attachment>
+        <sys_created_by>sls.chandra</sys_created_by>
+        <sys_created_on>2020-08-17 06:38:30</sys_created_on>
+        <sys_id>521158371b2e5c10dbd0baeccc4bcb9c</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>6wzwc+flkuJiYGDg9fRwCQLSD0GYgxlIcuYqeQCpGwE+Ia7///+/cv9laeaGR3sYHkQGesx9XJy+vrF8W278mtNXH7fX7rz26FV+0toTFx9t23UtO3b1sycfUlY+e3DQ4vLDTw9CvTmNwx/6OV87fenazRPlqWtuXVwUN//Bo70MD2J8H4QGP2y1vHLz8ZV79xj0/K1nPHr07tey+acntO87cOLu/dT4bbuvpSQsDI+Y4uTToOmQc/DC653XPs89/q5p56tTD75FLX16++bLL19+rlp89ubq9Td2Hbg1f9GDALcHRS43ru16uEry4X7Nh/NU77Y0Xz9x7NrtS/eOZ9w7FjOt79Clc09Wnfsw3bPXk4GB2crTxTGkYs7bu5XBtxwkGgr72JQ9OztWbF3rKsAvoL9k6/JvAfv/m2fZvLpxKW3yXd3fep9t/m/evP8mb+ScHs2pHajg2bLN//xi86z/GjvfXzLviOnJo561SSxrrmpd6tZWO8L688CUHYv59/jFnLcL7/y39UZ/rL9d+Mfo3IeH1XqdV95d77A2T6OnfL537ve+iGgDkbbuwMi0i0kZni+iPp0XUHJ5YdfCIbiLX9Gp5d3smQaXfnxc+HnmyjTVnntv14rkvb/DVOh26MXfV5sfrV0zr1pZp/4Cw7K3M/Uf9bRkW3lX7O6SBWpWcukQAGrnELwllud3PTP1+fSCz49nrzQTqf3k9ePn1ZLQ0PhtewTz4lZY1mdHbgxm5VxddWhVkuBTjvhsptWvkfQjMwImbDD+fuhF0M8X854fKvpZFDpVLaDH4NWa1O9Xyxdu0kVRvUUhRzebS/TxKcFp1782SBvN8z0T/Pr296eH/kaE26rpeMyQMg3i0/L6Ee/UIbDwN9zP52cZTJqlmnjnRv6JnP2Jz+svhCXtDH3DsbRdYOEfgXNhFhJ8a/o1PS1yynff/Xbh04qmFva733LvMu8+fEqQ712j5sV3flOVbSpEbsW6WB4K/B2uvPqx0py5Bf/KM58GZpRHOB56ePjuoU+8gRM2GEksLf8z8W1wr0rirL/Oszs/nJo8+fvUbRsEd82rWXeobduGKT82dGwNkH9xPPvkpGzmxJUTOeoNI3XNmKd5eYd3Rn7sfpO0+eHhfRdf87+frTOz5IfRbufFF3U/9Fi/ZY386hfrf2GHcuuHE19Zeq3DOPpB3DQ1A45Z69QzYr4JLet+UdW0TFPvsOUOgeNcCQI9sf4X10hfFfq1r+N2VoLXnTJb379qljXbPS1mZmydK/xCN7Aw7vfaaa9PvioJYpD44hfjv73A3VEwwYvnj1XT9mNHa8qPLbO/v3Kyk/SXzovTg3/4+vPPENq74/d2rriGeonjj7avesZWmySyL9R0X+Ky6RdNlVbLsL+VOSJ9vadHpH7TCc0pe/yjw1oW9Rcs9/38x+qOgCAKiHyjrrQ5fNq9CLZLwJKCwdPVz2WdU0ITADzdwvxXBAAA</data>
+        <length>1480</length>
+        <position>1</position>
+        <sys_attachment display_value="selected_image" sys_id="121158371b2e5c10dbd0baeccc4bcb9c">121158371b2e5c10dbd0baeccc4bcb9c</sys_attachment>
+        <sys_created_by>sls.chandra</sys_created_by>
+        <sys_created_on>2020-08-17 06:38:30</sys_created_on>
+        <sys_id>d21158371b2e5c10dbd0baeccc4bcb9c</sys_id>
+    </sys_attachment_doc>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344f0a90000001</claim_timestamp>
+        <metadata_update_name>asmt_metric_definition_62f39c3b1b2e5c10dbd0baeccc4bcbea</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:54</sys_created_on>
+        <sys_id>a059d8d90745011091b7f7208c1ed086</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:54</sys_updated_on>
+    </sys_claim>
+</record_update>

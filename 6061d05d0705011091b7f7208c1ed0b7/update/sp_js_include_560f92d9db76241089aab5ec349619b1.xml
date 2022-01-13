@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_js_include">
+    <sp_js_include action="INSERT_OR_UPDATE">
+        <display_name>https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.1.1/angular-chart.min.js</display_name>
+        <source>url</source>
+        <sys_class_name>sp_js_include</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-09 05:01:02</sys_created_on>
+        <sys_id>560f92d9db76241089aab5ec349619b1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.1.1/angular-chart.min.js</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_ui_script display_value="angular-chart-min">681fd2d9db76241089aab5ec34961968</sys_ui_script>
+        <sys_update_name>sp_js_include_560f92d9db76241089aab5ec349619b1</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:53</sys_updated_on>
+        <url>https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.1.1/angular-chart.min.js</url>
+    </sp_js_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344edc20000001</claim_timestamp>
+        <metadata_update_name>sp_js_include_560f92d9db76241089aab5ec349619b1</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:53</sys_created_on>
+        <sys_id>5059d8d90745011091b7f7208c1ed01d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:53</sys_updated_on>
+    </sys_claim>
+</record_update>

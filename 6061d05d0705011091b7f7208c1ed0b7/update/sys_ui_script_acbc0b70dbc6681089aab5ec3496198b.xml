@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <description/>
+        <global>false</global>
+        <name>Ripple Initialize</name>
+        <script><![CDATA[$(document).ready(function() {
+  $(".rippler").rippler({
+    effectClass      :  'rippler-effect'
+    ,effectSize      :  0      // Default size (width & height)
+    ,addElement      :  'div'   // e.g. 'svg'(feature)
+    ,duration        :  400
+  });
+});]]></script>
+        <script_name/>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-01-29 12:16:17</sys_created_on>
+        <sys_id>acbc0b70dbc6681089aab5ec3496198b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Ripple Initialize</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sys_ui_script_acbc0b70dbc6681089aab5ec3496198b</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:06</sys_updated_on>
+        <ui_type>1</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e53451fdf0000001</claim_timestamp>
+        <metadata_update_name>sys_ui_script_acbc0b70dbc6681089aab5ec3496198b</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:06</sys_created_on>
+        <sys_id>23599cd90745011091b7f7208c1ed000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:06</sys_updated_on>
+    </sys_claim>
+</record_update>

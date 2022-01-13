@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function mdHeader($rootScope, $scope, snRecordWatcher, spUtil, $location, $uibModal, cabrillo, $timeout, $window) {
+	$scope.avatarProfile = {
+		userID: $scope.user.sys_id,
+		name: $scope.user.name,
+		initials: $window.NOW.user_initials
+	};
+
+	if ($window.NOW.user_avatar) {
+		$scope.avatarProfile.userImage = $window.NOW.user_avatar;
+	}
+
+	if (cabrillo.isNative()) {
+		if ($window.innerWidth < 767) {
+			$scope.isViewNative = true;
+		} else {
+			$scope.isViewNativeTablet = true;
+		}
+	}
+
+
+	$scope.openPopUp = function() {
+		var url = "$chat_support.do?queueID=" + $scope.data.connect_support_queue_id;
+		var popup = window.open (url, "popup", "width=900, height=600");
+	};
+
+	$scope.openLogin = function () {
+		$scope.modalInstance = $uibModal.open({
+			templateUrl: 'modalLoginCSM',
+			scope: $scope
+		});
+	};
+
+	var xsScreenSize = isXSScreenSize();
+	$scope.showXSAvatar = isXSScreenSize();
+	$scope.showAvatar = !isXSScreenSize();
+
+	$scope.isAgentChatConfigured = g_has_agent_chat_config;
+
+	angular.element($window).on('resize', function () {
+		if(xsScreenSize !== isXSScreenSize() && (!$scope.showXSAvatar || !$scope.showAvatar)){
+			$scope.showXSAvatar = true;
+			$scope.showAvatar = true;
+		}
+	});
+
+
+	function isXSScreenSize() {
+		return $window.matchMedia('(max-width: 767px)').matches;
+	}
+
+	$rootScope.$on('sp.avatar_changed', function(evt, obj) {
+		$scope.userID = "";
+		$scope.newAvatarId = obj.newAvatarId;
+		$timeout(function(){
+			$scope.userID = $scope.user.sys_id;
+			$("#profile-dropdown .sub-avatar").css("background-image", 'url("' + $scope.newAvatarId + '.iix?t=small")');
+		});
+	});
+
+	$scope.isHomepage = function() {
+		if (!$scope.page.id)
+			return true;
+
+		if ($scope.page.id == $scope.portal.homepage_dv)
+			return true;
+
+		return false;
+	};
+	
+	$scope.loadingIndicator = $rootScope.loadingIndicator;
+	$scope.$on('sp_loading_indicator', function(e, value) {
+		$scope.loadingIndicator = value;
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.navbar {
+  transition: 250ms opacity ease-in-out;
+  -webkit-transition: 250ms opacity ease-in-out;
+  border: 0;
+  //border-radius: 0 40px 40px 0 !important;
+  height: 100vh;
+  padding: 0 10px;
+  justify-content: space-between;
+  border-bottom: 0px solid $sp-navbar-divider-color;
+}
+
+.avatar-container .avatar.soloAvatar {
+  background: rgba(0, 0, 0, 0.15) center;
+  border-radius: 6px !important;
+}
+
+#sp-nav-bar{
+  ul.nav.navbar-nav{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+  }
+}
+.navbar-fade {
+  opacity: 0.4;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+header[role="banner"],
+.nav &gt; li &gt; a {
+  max-height: 60px;
+}
+
+@media screen and (max-width: 768px){
+  .nav &gt; li &gt; a {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+.navbar-brand {
+  max-height: 60px;
+  padding: 0;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-brand img, .navbar-brand span {
+  margin-left: $sp-logo-margin-x;
+  margin-right: $sp-logo-margin-x;
+  margin-top: $sp-logo-margin-y;
+  margin-bottom: $sp-logo-margin-y;
+  display: block;
+  max-height: $sp-logo-max-height;
+  max-width: $sp-logo-max-width;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.breadcrumb-container {
+  background-color: $panel-bg;
+}
+
+/* for mobile app */
+.navbar-inverse.is-native {
+  background-color: #405060;
+}
+
+nav {
+  margin-bottom: 0px;
+  //border-radius: 0px;
+
+  .toggle-dropdown {
+    height: 60px;
+  }
+
+}
+
+.navbar-right {
+  padding-right: 0px;
+  //padding-left: 7px;
+}
+
+.navbar-nav {
+  margin: 0px;
+}
+
+// PRB711244: Dropdown menu is scrollable when too many items
+.scrollable-dropdown {
+  max-height: 80vh;
+  overflow: auto;
+  height: auto;
+}
+
+.is-native {
+  .scrollable-dropdown {
+    max-height: 100vh;
+    overflow: scroll;
+    height: auto;
+  }
+}
+
+
+/* PRB923910: Fix for Service Portal - Header Poorly Aligned in Safari */
+@media screen and (min-width: 768px) {
+  .navbar-right {
+    display: flex !important;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+
+}]]></link>
+        <name>Md-Header</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	// Defines the support queue ID that will be linked to by the Live Chat link in header
+	data.connect_support_queue_id = $sp.getValue('sp_chat_queue');
+	data.mdautocomplete=$sp.getWidget('md-autocomplete',{});
+	data.login_page = $sp.getValue('login_page');
+	data.profileBtnMsg = gs.getMessage("User options");
+	var menu = $sp.getValue("sp_rectangle_menu");
+	data.menu = $sp.getWidgetFromInstance(menu);
+	if (data.menu && data.menu.data) {
+		data.menu.data.replace = true;
+		// Hide login if menu already has link to login
+		data.hasLogin = false;
+		if (data.menu.data.menu.items) {
+			for(var i in data.menu.data.menu.items) {
+				var item = data.menu.data.menu.items[i];
+				if (item.type == 'page' && item.sp_page == data.login_page)
+					data.hasLogin = true;
+			}
+		}
+	}
+
+	data.loginWidget = $sp.getWidgetFromInstance('login-modal');
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-07 15:14:19</sys_created_on>
+        <sys_id>c16712f4dbf6a01089aab5ec349619a7</sys_id>
+        <sys_mod_count>44</sys_mod_count>
+        <sys_name>Md-Header</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_header_footer_c16712f4dbf6a01089aab5ec349619a7</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:38</sys_updated_on>
+        <template><![CDATA[<md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar _md md-site-toolbar-theme _md-toolbar-transitions">
+  <div  class="md-toolbar-tools md-hue-2" layout-align="left center">
+    <div layout="row" flex class='fill-height layout-row flex'>
+
+      <div show-gt-xs class="md-toolbar-item navbar-header">
+        <md-button class="navbar-brand" ng-if="::!portal.logo" href="?id={{::portal.homepage_dv}}"><span ng-bind="portal.title"></span></md-button>
+        <md-button class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" ng-href="?id={{::portal.homepage_dv}}" ng-click="collapse()" aria-label="${Go to homepage}">
+          <img ng-src="{{::portal.logo}}" title="ServiceNow" role="presentation" alt="${Portal Logo}" />
+        </md-button>
+      </div>   
+      <span flex class='flex'></span>
+      <div class='md-toolbar-item'>
+        <sp-widget widget=data.mdautocomplete></sp-widget>
+      </div>
+      <sp-widget widget="::data.menu"></sp-widget>
+      <div class='md-toolbar-item'>
+        <ul ng-if="(!user.logged_in && page.id != portal.login_page_dv && !data.hasLogin)" class="nav navbar-nav" role="presentation">
+          <li role="presentation"><md-button href ng-click="::openLogin()">${Login}</md-button></li>
+        </ul>
+        <md-menu-bar ng-if="user.logged_in" class="nav navbar-nav" role="menubar">
+          <!-- chat, avatar, and logout -->
+          <md-button ng-if="::(data.connect_support_queue_id && !isAgentChatConfigured)" role="presentation" href ng-click="openPopUp()" role="menuitem">${Live Chat}</md-button>
+          <md-menu ng-if="showAvatar" class="hidden-xs dropdown" role="presentation">
+            <button aria-expanded="false"
+                    title="{{::data.profileBtnMsg}}" aria-label="{{::data.profileBtnMsg}}: {{::user.name}}"
+                    id="profile-dropdown"  role="menuitem" aria-haspopup="true" ng-click='$mdMenu.open()'>
+              <span class="navbar-avatar" aria-hidden="true">
+                <sn-avatar class="avatar-small-medium" primary="avatarProfile" />
+              </span>
+            </button>
+            <md-menu-content width="3" aria-label="{{::data.profileBtnMsg}}">
+              <md-menu-item role="presentation">
+                <md-button tabindex="-1" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" role="menuitem">${Profile}</md-button>
+              </md-menu-item>
+              <md-menu-item ng-if="::!(isViewNative || isViewNativeTablet)" role="presentation">
+                <md-button tabindex="-1" href="{{::portal.logoutUrl}}" role="menuitem">${Logout}
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <md-button ng-if="showXSAvatar" class="visible-xs-block" role="presentation" role="menuitem" ng-href="?id=user_profile&sys_id={{::user.sys_id}}" ng-click="collapse()">
+            <span class="navbar-avatar"><sn-avatar class="avatar-small-medium" primary="avatarProfile" /></span>{{::user.name}}
+          </md-button>
+          <md-button ng-if="::!(isViewNative || isViewNativeTablet)" class="visible-xs-block" role="presentation" role="menuitem" ng-href="{{::portal.logoutUrl}}" ng-click="collapse()">${Logout}</md-button>
+        </md-menu-bar>
+      </div>
+    </div>
+  </div>
+
+  <md-progress-linear ng-disabled='!loadingIndicator' md-mode="query"></md-progress-linear>
+
+</md-toolbar>
+]]></template>
+    </sp_header_footer>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344b42c0000001</claim_timestamp>
+        <metadata_update_name>sp_header_footer_c16712f4dbf6a01089aab5ec349619a7</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:38</sys_created_on>
+        <sys_id>bc49d4d90745011091b7f7208c1ed05d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:38</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>sp_platform</category>
+        <css>section.page, section.body {
+  padding: 0 !important;
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>md_branding_editor</id>
+        <internal>true</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles>sp_admin</roles>
+        <seo_script/>
+        <short_description>Configure a portal in a few easy steps</short_description>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-06 04:19:35</sys_created_on>
+        <sys_id>a65f667207f4411091b7f7208c1ed0f9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>md_branding_editor</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_page_a65f667207f4411091b7f7208c1ed0f9</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:33</sys_updated_on>
+        <title>MD Branding Editor</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=a65f667207f4411091b7f7208c1ed0f9"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344a0e70000001</claim_timestamp>
+        <metadata_update_name>sp_page_a65f667207f4411091b7f7208c1ed0f9</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:33</sys_created_on>
+        <sys_id>e33994d90745011091b7f7208c1ed03c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:33</sys_updated_on>
+    </sys_claim>
+</record_update>

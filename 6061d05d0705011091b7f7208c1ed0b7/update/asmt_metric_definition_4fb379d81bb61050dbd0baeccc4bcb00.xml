@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="asmt_metric_definition">
+    <asmt_metric_definition action="INSERT_OR_UPDATE">
+        <display>Outside office (I am using Citrix)</display>
+        <metric display_value="Tell us where you are connecting from">cfb339d81bb61050dbd0baeccc4bcbfc</metric>
+        <normalization_input>0</normalization_input>
+        <order>1</order>
+        <selected_image>5623903b1b2e5c10dbd0baeccc4bcbb8</selected_image>
+        <sys_class_name>asmt_metric_definition</sys_class_name>
+        <sys_created_by>sls.chandra</sys_created_by>
+        <sys_created_on>2020-08-19 03:06:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4fb379d81bb61050dbd0baeccc4bcb00</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Outside office (I am using Citrix)</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>asmt_metric_definition_4fb379d81bb61050dbd0baeccc4bcb00</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:53</sys_updated_on>
+        <unselected_image/>
+        <value>1</value>
+    </asmt_metric_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=4fb379d81bb61050dbd0baeccc4bcb00"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344ed6f0000001</claim_timestamp>
+        <metadata_update_name>asmt_metric_definition_4fb379d81bb61050dbd0baeccc4bcb00</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:53</sys_created_on>
+        <sys_id>1459d8d90745011091b7f7208c1ed019</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:53</sys_updated_on>
+    </sys_claim>
+</record_update>

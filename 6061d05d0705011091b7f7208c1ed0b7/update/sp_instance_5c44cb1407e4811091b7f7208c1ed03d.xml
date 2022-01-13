@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css>$md-list-item-background:#c7e6ff;</css>
+        <glyph>empty</glyph>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">99348b1407e4811091b7f7208c1ed002</sp_column>
+        <sp_widget display_value="MD KB Featured Articles">de03cb9c07ac411091b7f7208c1ed04a</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-12-17 01:10:23</sys_created_on>
+        <sys_id>5c44cb1407e4811091b7f7208c1ed03d</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Helpful Articles</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_instance_5c44cb1407e4811091b7f7208c1ed03d</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:50</sys_updated_on>
+        <title>Helpful Articles</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"table": {
+		"value": "kb_knowledge",
+		"displayValue": "Knowledge"
+	},
+	"display_field": {
+		"value": "short_description",
+		"displayValue": "short_description"
+	},
+	"secondary_fields": {
+		"value": "",
+		"displayValue": ""
+	},
+	"max_records": {
+		"value": "6",
+		"displayValue": "6"
+	},
+	"always_show": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_secondary_fields_label": {
+		"value": "false",
+		"displayValue": "false"
+	},
+	"knowledge_base": {
+		"value": "a7e8a78bff0221009b20ffffffffff17",
+		"displayValue": "IT"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=5c44cb1407e4811091b7f7208c1ed03d"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344e2ab0000001</claim_timestamp>
+        <metadata_update_name>sp_instance_5c44cb1407e4811091b7f7208c1ed03d</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:50</sys_created_on>
+        <sys_id>334998d90745011091b7f7208c1ed084</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:50</sys_updated_on>
+    </sys_claim>
+</record_update>

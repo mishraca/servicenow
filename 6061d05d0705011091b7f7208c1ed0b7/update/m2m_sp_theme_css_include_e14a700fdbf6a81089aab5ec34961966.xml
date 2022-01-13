@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_theme_css_include">
+    <m2m_sp_theme_css_include action="INSERT_OR_UPDATE">
+        <order>20</order>
+        <sp_css_include display_value="helper.css">a1e9788bdbf6a81089aab5ec349619a3</sp_css_include>
+        <sp_theme display_value="Angularjs Material Theme">aa8b9588db36a05089aab5ec349619a3</sp_theme>
+        <sys_class_name>m2m_sp_theme_css_include</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-14 08:09:48</sys_created_on>
+        <sys_id>e14a700fdbf6a81089aab5ec34961966</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>helper.css.Angularjs Material Theme</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>m2m_sp_theme_css_include_e14a700fdbf6a81089aab5ec34961966</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:38</sys_updated_on>
+    </m2m_sp_theme_css_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344b3ae0000001</claim_timestamp>
+        <metadata_update_name>m2m_sp_theme_css_include_e14a700fdbf6a81089aab5ec34961966</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:38</sys_created_on>
+        <sys_id>7449d4d90745011091b7f7208c1ed059</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:38</sys_updated_on>
+    </sys_claim>
+</record_update>

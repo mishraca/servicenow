@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>menuToggle</name>
+        <script><![CDATA[function($mdUtil, $animateCss, $$rAF) {
+	return {
+		scope: {
+			section: '='
+		},
+		template: '<md-button class="md-button-toggle" ng-class="{\'toggled\' : isOpen()}" ng-click="toggle()"'+
+		'aria-controls="sidebar-menu-{{section.label | nospace}}" flex layout="row" aria-expanded="{{isOpen(section)}}">'+
+		'<md-icon ng-if="::section.glyph" md-font-icon="fa fa-{{::section.glyph}}"></md-icon><span flex>{{section.label}}</span>'+
+		'<md-icon md-font-set="fa fa-chevron-down" class="md-toggle-icon" ng-class="{\'toggled\' : isOpen()}"></md-icon></md-button>'+
+		'<ul id="sidebar-menu-{{section.label | nospace}}" class="menu-toggle-list" ng-style="{ visibility: renderContent ? \'visible\' : \'hidden\' }" aria-hidden="{{!renderContent}}">'+
+		'<li ng-repeat="page in section.items"><menu-link section="page"></menu-link></li></ul>',
+		link: function(scope, element, attr) {
+			var controller = element.parent().scope().$parent;
+
+
+			// Used for toggling the visibility of the accordion's content, after
+			// all of the animations are completed. This prevents users from being
+			// allowed to tab through to the hidden content.
+			scope.renderContent = false;
+
+			scope.isOpen = function () {
+				return controller.isOpen(scope.section);
+			};
+			scope.toggle = function () {
+				controller.toggleOpen(scope.section);
+			};
+
+			$mdUtil.nextTick(function() {
+				scope.$watch(function () {
+					return controller.isOpen(scope.section);
+				}, function (open) {
+					var $ul = element.find('ul');
+					var $li = $ul[0].querySelector('a.active');
+
+					if (open) {
+						scope.renderContent = true;
+					}
+
+					$$rAF(function() {
+						var targetHeight = open ? $ul[0].scrollHeight : 0;
+
+						$animateCss($ul, {
+							easing: 'cubic-bezier(0.35, 0, 0.25, 1)',
+							to: { height: targetHeight + 'px' },
+							duration: 0.75 // seconds
+						}).start().then(function() {
+							var $li = $ul[0].querySelector('a.active');
+
+							scope.renderContent = open;
+
+							if (open && $li && $ul[0].scrollTop === 0) {
+								var activeHeight = $li.scrollHeight;
+								var activeOffset = $li.offsetTop;
+								var offsetParent = $li.offsetParent;
+								var parentScrollPosition = offsetParent ? offsetParent.offsetTop : 0;
+
+								// Reduce it a bit (2 list items' height worth) so it doesn't touch the nav
+								var negativeOffset = activeHeight * 2;
+								var newScrollTop = activeOffset + parentScrollPosition - negativeOffset;
+
+								$mdUtil.animateScrollTo(document.querySelector('.docs-menu').parentNode, newScrollTop);
+							}
+						});
+					});
+				});
+			});
+			var parentNode = element[0].parentNode.parentNode.parentNode;
+			if (parentNode.classList.contains('parent-list-item')) {
+				var heading = parentNode.querySelector('h2');
+				element[0].firstChild.setAttribute('aria-describedby', heading.id);
+			}
+		}
+	}
+}
+]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-21 23:24:35</sys_created_on>
+        <sys_id>6c03d61e0753301091b7f7208c1ed027</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>menuToggle</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_angular_provider_6c03d61e0753301091b7f7208c1ed027</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:04</sys_updated_on>
+        <type>directive</type>
+    </sp_angular_provider>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5345189f0000001</claim_timestamp>
+        <metadata_update_name>sp_angular_provider_6c03d61e0753301091b7f7208c1ed027</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:04</sys_created_on>
+        <sys_id>07595cd90745011091b7f7208c1ed079</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:04</sys_updated_on>
+    </sys_claim>
+</record_update>

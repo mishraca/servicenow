@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>standard</category>
+        <client_script><![CDATA[function($location, $scope) {
+	$scope.setProjectId=function(project){
+		$location.search({"project_id":project.sys_id})
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>md-autocomplete</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope) {
+	
+}]]></link>
+        <name>MD Autocomplete</name>
+        <option_schema>[{"name":"title","section":"Presentation","label":"Title","type":"string"},{"name":"color","section":"Presentation","label":"Color","type":"string"},{"name":"glyph","section":"Presentation","label":"glyph","type":"string"},{"name":"size","section":"Presentation","label":"Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","section":"Behavior","label":"Limit","type":"integer"},{"displayValue":"Search Source","hint":"If provided, limit the scope of the typeahead search to the given search sources","name":"contextual_search_sources","display_value_list":[],"section":"Behavior","label":"Contextual Search Sources","type":"glide_list","value":"sp_search_source","ed":{"reference":"sp_search_source"}}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.projects=[];
+	var projects = new GlideRecord('pm_project');
+	projects.addActiveQuery();
+	//projects.setLimit(30);
+	projects.query();
+	while(projects.next()){
+		data.projects.push(
+			{
+				sys_id:projects.getUniqueValue(),
+				short_description:projects.getValue('short_description'),
+				number:projects.getValue('number'),
+				priority:projects.getValue('priority'),
+				state:projects.getValue('state')
+			});
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-08 05:54:39</sys_created_on>
+        <sys_id>9bc1698ddbb2e01089aab5ec3496192c</sys_id>
+        <sys_mod_count>46</sys_mod_count>
+        <sys_name>MD Autocomplete</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_9bc1698ddbb2e01089aab5ec3496192c</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:25</sys_updated_on>
+        <template><![CDATA[<md-input-container>
+  <md-select placeholder='select project' style="min-width: 200px;" ng-model="projectSelected" ng-change='setProjectId(projectSelected)' ng-model-options="{ trackBy: '$value.sys_id' }">
+    <md-option ng-repeat="project in data.projects" ng-value="project"
+               ng-disabled="$index === 1">
+      {{project.short_description}}
+    </md-option>
+  </md-select>
+</md-input-container>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344820c0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_9bc1698ddbb2e01089aab5ec3496192c</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:25</sys_created_on>
+        <sys_id>a539d0d90745011091b7f7208c1ed0da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:25</sys_updated_on>
+    </sys_claim>
+</record_update>

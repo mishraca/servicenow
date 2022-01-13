@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css_include">
+    <sp_css_include action="INSERT_OR_UPDATE">
+        <name>angular-material.min.css</name>
+        <source>url</source>
+        <sp_css/>
+        <sys_class_name>sp_css_include</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-07 15:16:23</sys_created_on>
+        <sys_id>8eb8d238dbf6a01089aab5ec3496197f</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>angular-material.min.css</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_css_include_8eb8d238dbf6a01089aab5ec3496197f</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:07</sys_updated_on>
+        <url>https://ajax.googleapis.com/ajax/libs/angular_material/1.2.2/angular-material.min.css</url>
+    </sp_css_include>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e534523a60000001</claim_timestamp>
+        <metadata_update_name>sp_css_include_8eb8d238dbf6a01089aab5ec3496197f</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:07</sys_created_on>
+        <sys_id>77599cd90745011091b7f7208c1ed03d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:07</sys_updated_on>
+    </sys_claim>
+</record_update>

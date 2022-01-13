@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category/>
+        <client_script><![CDATA[function($scope, HighchartsConfigService) {
+	var c = this;
+	var hcs = new HighchartsConfigService(c.options, c.options.type, c.data);
+	c.chartConfig = hcs.getChartConfig();
+	c.chartConfig.theme = {
+    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572',
+             '#FF9655', '#FFF263', '#6AF9C4'],
+    chart: {
+        backgroundColor: {
+            linearGradient: [0, 0, 500, 500],
+            stops: [
+                [0, 'rgb(255, 255, 255)'],
+                [1, 'rgb(240, 240, 255)']
+            ]
+        }
+    },
+    title: {
+        style: {
+            color: '#000',
+            font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+        }
+    },
+    subtitle: {
+        style: {
+            color: '#666666',
+            font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+        }
+    },
+    legend: {
+        itemStyle: {
+            font: '9pt Trebuchet MS, Verdana, sans-serif',
+            color: 'black'
+        },
+        itemHoverStyle:{
+            color: 'gray'
+        }
+    }
+};
+	hcs.get();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data>{
+	"data": [
+		["Jan", 31],
+		["Feb", 28],
+		["Mar", 31],
+		["Apr", 30],
+		["May", 31],
+		["Jun", 30],
+		["Jul", 31],
+		["Aug", 31],
+		["Sep", 30],
+		["Oct", 31],
+		["Nov", 30],
+		["Dec", 31]
+	]
+}</demo_data>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>pe-chart</id>
+        <internal>false</internal>
+        <link/>
+        <name>PE Pie Chart</name>
+        <option_schema>[{"name":"interval","label":"Update Interval","type":"glide_duration"},{"name":"table","label":"Table","type":"string"},{"name":"fields","label":"Field","type":"field_name"},{"name":"encoded_query","label":"Encoded Query","type":"string"},{"name":"script_include","label":"Script Include","type":"string"},{"name":"function_name","label":"Process Function Name","type":"string"},{"name":"param1","label":"Parameter 1","type":"string"},{"name":"exporting","label":"Enable Export","type":"choice","choices":[{"label":"Enable","value":"true"},{"label":"Disable","value":"false"}]},{"name":"advance","label":"Set your own Chart object","instructions":"&lt;p&gt;Options available can be seen here &lt;a targe=\"_blank\" href=\"http://api.highcharts.com/highcharts\"&gt;Highcharts Doc&lt;/a&gt;.&lt;br/&gt;A example of the output is as follows&lt;/p&gt;&lt;pre&gt;&lt;code&gt;{\n\toptions:{\n\t\tplotOptions:{\n\t\t\tpie:{\n\t\t\t\tinnerSize:\"40%\"\n\t\t\t}\n\t\t}\n\t}\n}&lt;/code&gt;&lt;/pre&gt;","type":"script"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var serverOptions = input.options ? input.options : (input.parameters ? input.parameters : {});
+	options.type=options.type || "pie";
+	options.interval = options.interval || serverOptions.interval;
+	options.table = options.table || serverOptions.table;
+	options.fields = options.fields || serverOptions.fields;
+	options.encoded_query = options.encoded_query || serverOptions.encoded_query;
+	options.script_include = options.script_include || serverOptions.script_include || "PEHighchartsExample";
+	options.function_name = options.function_name || serverOptions.function_name || "getPieDemoData";
+	options.param1 = options.param1 || serverOptions.param1;
+	options.advance = options.advance || serverOptions.advance || JSON.stringify({
+	
+		"options":{
+			"plotOptions":{
+				"pie":{
+					"innerSize":"10%"
+				}
+			},
+			"exporting":{
+				"enabled":true
+			}
+		},
+		"title":{
+			"text":"Pie Chart/Donut Chart"
+		}
+	});
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>dachtman</sys_created_by>
+        <sys_created_on>2017-03-09 17:36:11</sys_created_on>
+        <sys_id>343199d7db513200f687dfea5e961957</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>PE Pie Chart</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_343199d7db513200f687dfea5e961957</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:37</sys_updated_on>
+        <template><![CDATA[<highchart config="c.chartConfig" class="pe-highchart-class pe-highchart-pie-chart"></highchart>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344b0db0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_343199d7db513200f687dfea5e961957</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:37</sys_created_on>
+        <sys_id>a44994d90745011091b7f7208c1ed0f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:37</sys_updated_on>
+    </sys_claim>
+</record_update>

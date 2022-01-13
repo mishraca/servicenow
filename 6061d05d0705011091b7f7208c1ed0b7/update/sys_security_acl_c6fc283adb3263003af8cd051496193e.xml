@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on si_abe_item_variable</description>
+        <name>si_abe_item_variable</name>
+        <operation display_value="create">create</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2019-01-08 03:48:35</sys_created_on>
+        <sys_id>c6fc283adb3263003af8cd051496193e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>si_abe_item_variable</sys_name>
+        <sys_package display_value="Advanced Branding Editor" source="4d3b6cb6db3263003af8cd0514961928">4d3b6cb6db3263003af8cd0514961928</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sys_security_acl_c6fc283adb3263003af8cd051496193e</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:41</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344c0b10000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_c6fc283adb3263003af8cd051496193e</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:41</sys_created_on>
+        <sys_id>e14918d90745011091b7f7208c1ed034</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:41</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344c0ab0000001</claim_timestamp>
+        <metadata_update_name>sys_security_acl_c6fc283adb3263003af8cd051496193e</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Advanced Branding Editor</previous_claim_name>
+        <previous_claim_scope>4d3b6cb6db3263003af8cd0514961928</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:41</sys_created_on>
+        <sys_id>a54918d90745011091b7f7208c1ed034</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:41</sys_updated_on>
+    </sys_claim>
+</record_update>

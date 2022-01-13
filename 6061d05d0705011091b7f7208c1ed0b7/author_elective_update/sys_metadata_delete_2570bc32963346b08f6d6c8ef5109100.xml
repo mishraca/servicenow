@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <m2m_sp_theme_js_include action="DELETE">
+<order>700</order>
+<sp_js_include display_value="modules">1676ca91db36241089aab5ec34961911</sp_js_include>
+<sp_theme display_value="Angularjs Material Theme">aa8b9588db36a05089aab5ec349619a3</sp_theme>
+<sys_class_name>m2m_sp_theme_js_include</sys_class_name>
+<sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+<sys_created_on>2021-03-09 03:13:40</sys_created_on>
+<sys_id>b2868a91db36241089aab5ec34961924</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>modules.Angularjs Material Theme</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>m2m_sp_theme_js_include_b2868a91db36241089aab5ec34961924</sys_update_name>
+<sys_updated_by>chandralok.m@serviceline.com.au</sys_updated_by>
+<sys_updated_on>2021-03-09 05:12:52</sys_updated_on>
+</m2m_sp_theme_js_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Global">global</application>
+        <file_path/>
+        <instance_id>5b1f5e18dbdbd7c46578f22ebf961963</instance_id>
+        <instance_name>dev64121</instance_name>
+        <name>m2m_sp_theme_js_include_b2868a91db36241089aab5ec34961924</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><m2m_sp_theme_js_include action="INSERT_OR_UPDATE">
+<order>700</order>
+<sp_js_include display_value="modules">1676ca91db36241089aab5ec34961911</sp_js_include>
+<sp_theme display_value="Angularjs Material Theme">aa8b9588db36a05089aab5ec349619a3</sp_theme>
+<sys_class_name>m2m_sp_theme_js_include</sys_class_name>
+<sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+<sys_created_on>2021-03-09 03:13:40</sys_created_on>
+<sys_id>b2868a91db36241089aab5ec34961924</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>modules.Angularjs Material Theme</sys_name>
+<sys_package display_value="Global" source="global">global</sys_package>
+<sys_policy/>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>m2m_sp_theme_js_include_b2868a91db36241089aab5ec34961924</sys_update_name>
+<sys_updated_by>chandralok.m@serviceline.com.au</sys_updated_by>
+<sys_updated_on>2021-03-09 05:12:52</sys_updated_on>
+</m2m_sp_theme_js_include></record_update>]]></payload>
+        <payload_hash>-2095835414</payload_hash>
+        <record_name>modules.Angularjs Material Theme</record_name>
+        <reverted_from/>
+        <source>d7a13b8c07d7201091b7f7208c1ed081</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-11 01:23:09</sys_created_on>
+        <sys_id>39a4ce3e070bb41091b7f7208c1ed022</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c6cf244a90000001</sys_recorded_at>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-10-11 01:23:09</sys_updated_on>
+        <type>JS Includes</type>
+        <update_guid>31a4ce3ecb0bb410bac18e12ff37ef22</update_guid>
+        <update_guid_history>31a4ce3ecb0bb410bac18e12ff37ef22:-2095835414,16d3f9da6f03f01012334b74366d4994:-571314564,30d1261d61762410f27b706f45a940bc:-1896004984,758d8a19a236241031bf4fbc146bcbdc:-999365496,72868a91e1362410b7dc3a6cd9d1fa26:2092158229</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="modules.Angularjs Material Theme">e726027e070bb41091b7f7208c1ed071</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-11 01:29:49</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_theme_js_include">m2m_sp_theme_js_include</sys_db_object>
+        <sys_id>2570bc32963346b08f6d6c8ef5109100</sys_id>
+        <sys_metadata>b2868a91db36241089aab5ec34961924</sys_metadata>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>modules.Angularjs Material Theme</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_scope_delete display_value="">3a08cd4d4e9544da90041791f25d2984</sys_scope_delete>
+        <sys_update_name>sys_metadata_delete_2570bc32963346b08f6d6c8ef5109100</sys_update_name>
+        <sys_update_version display_value="m2m_sp_theme_js_include_b2868a91db36241089aab5ec34961924">39a4ce3e070bb41091b7f7208c1ed022</sys_update_version>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

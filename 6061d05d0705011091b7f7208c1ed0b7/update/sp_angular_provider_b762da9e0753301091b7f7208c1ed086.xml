@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>menuLink</name>
+        <script><![CDATA[function(scrollCache) {
+	return {
+		scope: {
+			section: '='
+		},
+		template: '<md-button ng-class="{\'active\' : isSelected()}" ng-href="{{section.href}}" ng-click="focusSection()">'+
+		'<md-icon ng-if="::section.glyph" md-font-icon="fa fa-{{::section.glyph}}"></md-icon><span flex>{{section | humanizeDoc}}</span>'+
+		'  <span class="md-visually-hidden "\n' +
+		'    ng-if="isSelected()">\n' +
+		'    current page\n' +
+		'</md-button>',
+		link: function(scope, element,attr) {				
+			var controller = element.parent().scope().$parent.$parent;
+
+			scope.isSelected = function() {
+				return controller.isSelected(scope.section);
+			};
+
+			scope.focusSection = function() {
+				// set flag to be used later when
+				// $locationChangeSuccess calls openPage()
+				controller.autoFocusContent = true;
+				// set flag to be used later when $routeChangeStart saves scroll position
+				scrollCache.linkClicked = true;
+			};
+		}
+	};
+}
+]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-21 23:23:50</sys_created_on>
+        <sys_id>b762da9e0753301091b7f7208c1ed086</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>menuLink</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_angular_provider_b762da9e0753301091b7f7208c1ed086</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:39</sys_updated_on>
+        <type>directive</type>
+    </sp_angular_provider>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344b98e0000001</claim_timestamp>
+        <metadata_update_name>sp_angular_provider_b762da9e0753301091b7f7208c1ed086</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:39</sys_created_on>
+        <sys_id>c949d4d90745011091b7f7208c1ed094</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:39</sys_updated_on>
+    </sys_claim>
+</record_update>

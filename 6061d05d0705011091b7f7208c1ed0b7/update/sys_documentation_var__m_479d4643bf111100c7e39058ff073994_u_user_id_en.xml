@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_user_id" label="User Id" language="en" table="var__m_479d4643bf111100c7e39058ff073994">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_user_id</element>
+            <help/>
+            <hint/>
+            <label>User Id</label>
+            <language>en</language>
+            <name>var__m_479d4643bf111100c7e39058ff073994</name>
+            <plural>User Id</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2013-12-02 02:15:57</sys_created_on>
+            <sys_id>3ced8643bf111100c7e39058ff073952</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>User Id</sys_name>
+            <sys_package display_value="Password Reset" source="com.glideapp.password_reset">9a5eadac07171010cf27f19d7c1ed091</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+            <sys_update_name>sys_documentation_var__m_479d4643bf111100c7e39058ff073994_u_user_id_en</sys_update_name>
+            <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+            <sys_updated_on>2022-01-13 11:49:00</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e53450b4b0000001</claim_timestamp>
+        <metadata_update_name>sys_documentation_var__m_479d4643bf111100c7e39058ff073994_u_user_id_en</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:00</sys_created_on>
+        <sys_id>16591cd90745011091b7f7208c1ed022</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:00</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e53450b4a0000001</claim_timestamp>
+        <metadata_update_name>sys_documentation_var__m_479d4643bf111100c7e39058ff073994_u_user_id_en</metadata_update_name>
+        <previous_claim_app_version/>
+        <previous_claim_name>com.glideapp.password_reset</previous_claim_name>
+        <previous_claim_scope>com.glideapp.password_reset</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:00</sys_created_on>
+        <sys_id>d6591cd90745011091b7f7208c1ed022</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:00</sys_updated_on>
+    </sys_claim>
+</record_update>
