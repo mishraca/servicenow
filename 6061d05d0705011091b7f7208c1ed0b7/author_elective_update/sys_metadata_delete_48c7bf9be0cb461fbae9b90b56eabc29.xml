@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="DELETE">
+        <catalog_item display_value="Support Form">bb81fd33db05985067c736bc7c961905</catalog_item>
+        <catalog_variable>IO:1ba1302ddb991810f941065bd3961958</catalog_variable>
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>true</mandatory>
+        <order>1</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>chandralok.mishra</sys_created_by>
+        <sys_created_on>2020-06-09 08:19:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6a729da9db9d1810f941065bd39619d5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>what_is_your_issue_related_to</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_6a729da9db9d1810f941065bd39619d5</sys_update_name>
+        <sys_updated_by>chandralok.mishra</sys_updated_by>
+        <sys_updated_on>2020-06-09 10:15:43</sys_updated_on>
+        <table/>
+        <ui_policy display_value="What is your issue related to?">e57259a9db9d1810f941065bd39619cb</ui_policy>
+        <variable>what_is_your_issue_related_to</variable>
+        <variable_set/>
+        <visible>true</visible>
+    </catalog_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Global">global</application>
+        <file_path/>
+        <instance_id>5b1f5e18dbdbd7c46578f22ebf961963</instance_id>
+        <instance_name>dev64121</instance_name>
+        <name>catalog_ui_policy_action_6a729da9db9d1810f941065bd39619d5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action"><catalog_ui_policy_action action="INSERT_OR_UPDATE"><catalog_item display_value="Support Form">bb81fd33db05985067c736bc7c961905</catalog_item><catalog_variable>IO:1ba1302ddb991810f941065bd3961958</catalog_variable><cleared>true</cleared><disabled>ignore</disabled><field/><mandatory>true</mandatory><order>1</order><sys_class_name>catalog_ui_policy_action</sys_class_name><sys_created_by>chandralok.mishra</sys_created_by><sys_created_on>2020-06-09 08:19:33</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>6a729da9db9d1810f941065bd39619d5</sys_id><sys_mod_count>2</sys_mod_count><sys_name>what_is_your_issue_related_to</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>catalog_ui_policy_action_6a729da9db9d1810f941065bd39619d5</sys_update_name><sys_updated_by>chandralok.mishra</sys_updated_by><sys_updated_on>2020-06-09 10:15:43</sys_updated_on><table/><ui_policy display_value="What is your issue related to?">e57259a9db9d1810f941065bd39619cb</ui_policy><variable>what_is_your_issue_related_to</variable><variable_set/><visible>true</visible></catalog_ui_policy_action></record_update>]]></payload>
+        <payload_hash>535662040</payload_hash>
+        <record_name>what_is_your_issue_related_to</record_name>
+        <reverted_from/>
+        <source>85b593be0744011091b7f7208c1ed021</source>
+        <source_table>sys_update_set</source_table>
+        <state>backedout</state>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-11-30 00:23:03</sys_created_on>
+        <sys_id>d9669f320784011091b7f7208c1ed0ca</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_recorded_at>17d6e39380d0000001</sys_recorded_at>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-12-02 11:18:15</sys_updated_on>
+        <type>Catalog UI Policy Action</type>
+        <update_guid>a71da5e572515810e2630ebf003363f3</update_guid>
+        <update_guid_history>a71da5e572515810e2630ebf003363f3:535662040,b6d6656d0e115810bcd75094129cae00:-1201546597,428211e99e9d18103283bb81ca892012:535662040</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="what_is_your_issue_related_to">128fb32f0708011091b7f7208c1ed056</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-12-02 11:18:15</sys_created_on>
+        <sys_db_object display_value="" name="catalog_ui_policy_action">catalog_ui_policy_action</sys_db_object>
+        <sys_id>48c7bf9be0cb461fbae9b90b56eabc29</sys_id>
+        <sys_metadata>6a729da9db9d1810f941065bd39619d5</sys_metadata>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>what_is_your_issue_related_to</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_scope_delete display_value="">3a08cd4d4e9544da90041791f25d2984</sys_scope_delete>
+        <sys_update_name>sys_metadata_delete_48c7bf9be0cb461fbae9b90b56eabc29</sys_update_name>
+        <sys_update_version display_value="catalog_ui_policy_action_6a729da9db9d1810f941065bd39619d5">d9669f320784011091b7f7208c1ed0ca</sys_update_version>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

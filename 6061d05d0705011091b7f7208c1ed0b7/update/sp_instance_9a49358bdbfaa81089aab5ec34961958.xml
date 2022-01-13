@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column/>
+        <sp_widget display_value="PE Pie Chart">343199d7db513200f687dfea5e961957</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-14 12:45:07</sys_created_on>
+        <sys_id>9a49358bdbfaa81089aab5ec34961958</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Stories per State</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_instance_9a49358bdbfaa81089aab5ec34961958</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:47</sys_updated_on>
+        <title>Stories per State</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"interval": {
+		"value": "",
+		"displayValue": ""
+	},
+	"table": {
+		"value": "rm_story",
+		"displayValue": "rm_story"
+	},
+	"fields": {
+		"value": "state",
+		"displayValue": "state"
+	},
+	"encoded_query": {
+		"value": "",
+		"displayValue": ""
+	},
+	"script_include": {
+		"value": "",
+		"displayValue": ""
+	},
+	"function_name": {
+		"value": "",
+		"displayValue": ""
+	},
+	"param1": {
+		"value": "",
+		"displayValue": ""
+	},
+	"exporting": {
+		"value": "true",
+		"displayValue": "Enable"
+	},
+      "type": {
+		"value": "pie",
+		"displayValue": "pie"
+	},
+	"advance": {
+		"value": "{\n\t\t\"options\":{\n\t\t\t\"plotOptions\":{\n\t\t\t\t\"pie\":{\n\t\t\t\t\t\"innerSize\":\"20%\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"exporting\":{\n\t\t\t\t\"enabled\":true\n\t\t\t}\n\t\t}\n\t,\n\t\t\t\"title\":{\"text\":\"Stories\"}}",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=9a49358bdbfaa81089aab5ec34961958"/>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344d6220000001</claim_timestamp>
+        <metadata_update_name>sp_instance_9a49358bdbfaa81089aab5ec34961958</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:47</sys_created_on>
+        <sys_id>474958d90745011091b7f7208c1ed09b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:47</sys_updated_on>
+    </sys_claim>
+</record_update>

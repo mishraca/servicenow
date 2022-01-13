@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <description/>
+        <global>false</global>
+        <name>Rippler</name>
+        <script><![CDATA[(function($) {
+  "use strict";
+  var namespace = 'rippler';
+  var methods = {
+    init: function(options){
+      options = $.extend({
+        effectClass      :  'rippler-effect'
+        ,effectSize      :  0      // Default size (width & height)
+        ,addElement      :  'div'   // e.g. 'svg' (feature)
+        ,duration        :  600
+      }, options);
+      return this.each(function(){
+        var _this = this;
+        var $this = $(this);
+        var data = $this.data(namespace);
+
+        if (!data) {
+          options = $.extend({}, options);
+
+          $this.data(namespace, {
+            options: options
+          });
+
+          if (typeof document.ontouchstart != "undefined") {
+            $this.on("touchstart."+ namespace, function(event) {
+              var $self = $(this);
+              methods.elementAdd.call(_this, $self, event);
+            });
+            $this.on("touchend." + namespace, function(event) {
+              var $self = $(this);
+              methods.effect.call(_this, $self, event);
+            });
+          }else{
+            $this.on("mousedown."+ namespace, function(event) {
+              var $self = $(this);
+              methods.elementAdd.call(_this, $self, event);
+            });
+            $this.on("mouseup."+ namespace, function(event) {
+              var $self = $(this);
+              methods.effect.call(_this, $self, event);
+            });
+
+          }
+
+        }
+      }); // end each
+    },
+
+    template: function(options){
+      var $this = $(this);
+      options = $this.data(namespace).options;
+      var element;
+      var svgElementClass = 'rippler-svg';
+      var divElementClass = 'rippler-div';
+
+      var circle = '<circle cx="'+options.effectSize+'" cy="'+options.effectSize+'" r="'+(options.effectSize / 2)+'">';
+      var svgElement = '<svg class="'+options.effectClass+' '+svgElementClass+'" xmlns="http://www.w3.org/2000/svg" viewBox="'+(options.effectSize / 2)+' '+(options.effectSize / 2)+' '+options.effectSize+' '+options.effectSize+'">'+circle+'</svg>';
+
+      var divElement = '<div class="'+options.effectClass+' '+divElementClass+'"></div>';
+
+      if (options.addElement === 'svg'){
+        element = svgElement;
+      } else {
+        element = divElement;
+      }
+      return element;
+    },
+
+    elementAdd: function($self, event, options){
+      var _this = this;
+      var $this = $(this);
+      options = $this.data(namespace).options;
+      $self.append(methods.template.call(_this));
+      var $effect = $self.find('.' + options.effectClass);
+      var selfOffset = $self.offset();
+      var eventX = methods.targetX.call(_this,event);
+      var eventY = methods.targetY.call(_this,event);
+
+      $effect.css({
+        'width':options.effectSize
+        ,'height':options.effectSize
+        ,'left': ( eventX - selfOffset.left ) - ( options.effectSize / 2 )
+        ,'top': ( eventY - selfOffset.top ) - ( options.effectSize / 2 )
+      });
+      return _this;
+    },
+
+    effect : function($self, event, options){
+      var _this = this;
+      var $this = $(this);
+      options = $this.data(namespace).options;
+      var $effect = $('.' + options.effectClass);
+      var selfOffset = $self.offset();
+      var thisW = $this.outerWidth();
+      var thisH = $this.outerHeight();
+      var effectMaxWidth = methods.diagonal(thisW, thisH) * 2;
+      var eventX = methods.targetX.call(_this,event);
+      var eventY = methods.targetY.call(_this,event);
+
+      $effect.css({
+        'width':effectMaxWidth
+        ,'height':effectMaxWidth
+        ,'left': ( eventX - selfOffset.left ) - ( effectMaxWidth / 2 )
+        ,'top': ( eventY - selfOffset.top ) - ( effectMaxWidth / 2 )
+        ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
+      });
+      return methods.elementRemove.call(_this);
+    },
+
+    elementRemove: function(options){
+      var _this = this;
+      var $this = $(this);
+      options = $this.data(namespace).options;
+      var $effect = $('.' + options.effectClass);
+      setTimeout(function(){
+        $effect.css({
+          'opacity': 0
+          ,'transition':'all '+ ( options.duration / 1000 ) +'s ease-out'
+        });
+        setTimeout(function(){
+          $effect.remove();
+        }, options.duration * 1.5);
+      }, options.duration);
+      return _this;
+    },
+
+    targetX: function(event){
+      var e = event.originalEvent;
+      var eventX;
+      if (typeof document.ontouchstart != "undefined") {
+        eventX = e.changedTouches[0].pageX;
+      }else{
+        eventX = e.pageX;
+      }
+      return eventX;
+    },
+
+    targetY: function(event){
+      var e = event.originalEvent;
+      var eventY;
+      if (typeof document.ontouchstart != "undefined") {
+        eventY = e.changedTouches[0].pageY;
+      }else{
+        eventY = e.pageY;
+      }
+      return eventY;
+    },
+
+    diagonal: function(x, y){
+      if (x > 0 && y > 0) return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+      else return false;
+    },
+
+    destroy: function(){
+      return this.each(function(){
+        var $this = $(this);
+        $(window).unbind('.'+namespace);
+        $this.removeData(namespace);
+      });
+    }
+
+  };
+
+  $.fn.rippler = function(method){
+    if ( methods[method] ) {
+      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.'+namespace);
+    }
+  };
+
+})(jQuery);]]></script>
+        <script_name/>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-01-29 12:12:59</sys_created_on>
+        <sys_id>e8fb0f30dbc6681089aab5ec349619c9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Rippler</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sys_ui_script_e8fb0f30dbc6681089aab5ec349619c9</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:50</sys_updated_on>
+        <ui_type>1</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344e4610000001</claim_timestamp>
+        <metadata_update_name>sys_ui_script_e8fb0f30dbc6681089aab5ec349619c9</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:50</sys_created_on>
+        <sys_id>374998d90745011091b7f7208c1ed093</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:50</sys_updated_on>
+    </sys_claim>
+</record_update>

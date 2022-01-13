@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row">
+    <sp_row action="DELETE">
+        <class_name>no-padder</class_name>
+        <order>2</order>
+        <sp_column/>
+        <sp_container display_value="Material design CSM Home - Container 1">4529214cdb76a05089aab5ec34961964</sp_container>
+        <sys_class_name>sp_row</sys_class_name>
+        <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
+        <sys_created_on>2021-03-05 03:52:50</sys_created_on>
+        <sys_id>e12925c8db76a05089aab5ec34961952</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>2</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sp_row_e12925c8db76a05089aab5ec34961952</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-12-14 05:59:49</sys_updated_on>
+    </sp_row>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Global">global</application>
+        <file_path/>
+        <instance_id>5b1f5e18dbdbd7c46578f22ebf961963</instance_id>
+        <instance_name>dev64121</instance_name>
+        <name>sp_row_e12925c8db76a05089aab5ec34961952</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_row"><sp_row action="INSERT_OR_UPDATE"><class_name>no-padder</class_name><order>2</order><sp_column/><sp_container display_value="Material design CSM Home - Container 1">4529214cdb76a05089aab5ec34961964</sp_container><sys_class_name>sp_row</sys_class_name><sys_created_by>chandralok.m@serviceline.com.au</sys_created_by><sys_created_on>2021-03-05 03:52:50</sys_created_on><sys_id>e12925c8db76a05089aab5ec34961952</sys_id><sys_mod_count>5</sys_mod_count><sys_name>2</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_row_e12925c8db76a05089aab5ec34961952</sys_update_name><sys_updated_by>chandumishra21@gmail.com</sys_updated_by><sys_updated_on>2021-12-14 05:59:49</sys_updated_on></sp_row></record_update>]]></payload>
+        <payload_hash>1291886947</payload_hash>
+        <record_name>2</record_name>
+        <reverted_from/>
+        <source>7c9bb17e07c7b41091b7f7208c1ed06b</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-12-14 05:59:49</sys_created_on>
+        <sys_id>a6b9a0270714851091b7f7208c1ed01f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17db786924f0000001</sys_recorded_at>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2021-12-14 05:59:49</sys_updated_on>
+        <type>Row</type>
+        <update_guid>6eb9a0276a1485105cde9ee9c8ca471e</update_guid>
+        <update_guid_history>6eb9a0276a1485105cde9ee9c8ca471e:1291886947,6867a0428d8f301036b1e77ffb0a3b88:2091654373,9f596c89360f60501b38881248c0c04a:356466973,c0994c8fc436a81050565ac22ad84c49:-163186270,0dfb1b55fe7a2410a7b421ad26e0d380:-51520746,a52925c89876a05052bced8e6c7d2053:356466973</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="2">32478b4c072c011091b7f7208c1ed025</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-12-16 06:45:11</sys_created_on>
+        <sys_db_object display_value="" name="sp_row">sp_row</sys_db_object>
+        <sys_id>61b12908bb5b4cd8947fbd1c5b3ac604</sys_id>
+        <sys_metadata>e12925c8db76a05089aab5ec34961952</sys_metadata>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>2</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_scope_delete display_value="">3a08cd4d4e9544da90041791f25d2984</sys_scope_delete>
+        <sys_update_name>sys_metadata_delete_61b12908bb5b4cd8947fbd1c5b3ac604</sys_update_name>
+        <sys_update_version display_value="sp_row_e12925c8db76a05089aab5ec34961952">a6b9a0270714851091b7f7208c1ed01f</sys_update_version>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

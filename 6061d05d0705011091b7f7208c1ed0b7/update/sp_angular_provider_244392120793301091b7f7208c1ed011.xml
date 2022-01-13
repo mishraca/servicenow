@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_angular_provider">
+    <sp_angular_provider action="INSERT_OR_UPDATE">
+        <name>menu</name>
+        <script><![CDATA[function($location, $rootScope, $http, $window) {
+
+	function sortByName(a,b) {
+		return a.name < b.name ? -1 : 1;
+	}
+
+	var self ={
+
+		selectSection: function(section) {
+			self.openedSection = section;
+		},
+		toggleSelectSection: function(section) {
+			self.openedSection = (self.openedSection === section ? null : section);
+		},
+		isSectionSelected: function(section) {
+			return self.openedSection === section;
+		},
+		selectPage: function(section, page) {
+			page && page.href && $location.path(page.href);
+			self.currentSection = section;
+			self.currentPage = page;
+		},
+		isPageSelected: function(page) {
+			return self.currentPage === page;
+		}
+	};
+
+	return self 
+}]]></script>
+        <sys_class_name>sp_angular_provider</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-21 23:25:41</sys_created_on>
+        <sys_id>244392120793301091b7f7208c1ed011</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>menu</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_angular_provider_244392120793301091b7f7208c1ed011</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:33</sys_updated_on>
+        <type>factory</type>
+    </sp_angular_provider>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344a1780000001</claim_timestamp>
+        <metadata_update_name>sp_angular_provider_244392120793301091b7f7208c1ed011</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:33</sys_created_on>
+        <sys_id>af3994d90745011091b7f7208c1ed040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:33</sys_updated_on>
+    </sys_claim>
+</record_update>

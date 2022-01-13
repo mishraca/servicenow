@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>3e9ea87adb3263003af8cd05149619fc</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Save Variable</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var requestBody = request.body;
+	var requestData = requestBody.data;
+	
+	var portalId = requestData.portalId;
+	var groupId = requestData.groupId;
+	
+	var sassVar = requestData.sassVar;
+	var sassVal = requestData.sassVal;
+	
+	var ah = new siAbeHelper();
+	
+	ah.saveSassValue(portalId, sassVar, sassVal);
+	
+	response.setBody(ah.getGroups(portalId, groupId));
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/snc/abe/var/save</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/var/save</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2019-01-09 00:23:41</sys_created_on>
+        <sys_id>ca454d0fdbba63003af8cd0514961964</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Save Variable</sys_name>
+        <sys_package display_value="Advanced Branding Editor" source="4d3b6cb6db3263003af8cd0514961928">4d3b6cb6db3263003af8cd0514961928</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sys_ws_operation_ca454d0fdbba63003af8cd0514961964</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:51</sys_updated_on>
+        <web_service_definition display_value="Advanced Branding Editor">9654c10fdbba63003af8cd05149619ab</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344e62f0000001</claim_timestamp>
+        <metadata_update_name>sys_ws_operation_ca454d0fdbba63003af8cd0514961964</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:51</sys_created_on>
+        <sys_id>0c5998d90745011091b7f7208c1ed0a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:51</sys_updated_on>
+    </sys_claim>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344e6260000001</claim_timestamp>
+        <metadata_update_name>sys_ws_operation_ca454d0fdbba63003af8cd0514961964</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Advanced Branding Editor</previous_claim_name>
+        <previous_claim_scope>4d3b6cb6db3263003af8cd0514961928</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:51</sys_created_on>
+        <sys_id>cc5998d90745011091b7f7208c1ed0a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:51</sys_updated_on>
+    </sys_claim>
+</record_update>

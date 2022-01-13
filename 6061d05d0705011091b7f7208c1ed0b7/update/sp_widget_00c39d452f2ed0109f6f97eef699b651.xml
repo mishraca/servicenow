@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>sc</category>
+        <client_script><![CDATA[function($scope,spModal,$timeout,$cookies,$location,$rootScope,spUtil) {
+
+	var c = this;
+	var ticketConversationWidgetID = c.options.ticket_conversation_widget_id || 'widget-ticket-conversation'; //id for conversation widget displayed in modal
+	$scope.currentFilter = null;
+	$scope.filter = {
+		filterText: ""
+	};
+	c.cookie_filter = false;
+	c.placeholder = '';
+	c.isDesc = true;
+	c.panelBorderLeftColor = "";
+	c.color = "";
+	c.iconColor = "";
+	c.tabBorderColor = "";
+	c.icon = null;
+	c.loading = true;
+	c.show=true;
+	c.toggle=function(){
+		c.show=!c.show;
+	}
+
+	//when a user selects a filter tab, udpate props
+	$scope.$watch("currentFilter",function(filter){
+		if(filter){
+			c.placeholder = String(filter.label);
+			c.panelBorderLeftColor = filter.panelBorderLeftColor;
+			c.tabBorderColor = filter.tabBorderColor;
+			c.color = filter.color || "#4a4a4a";
+			c.iconColor = filter.iconColor;
+			c.icon = filter.icon;
+			$cookies.put("selected_filter",filter.id);
+		}
+	});
+
+	//functions to update styling on filter change
+	c.setPanelBorderColor = function(){
+		return {'border-left-color':c.panelBorderLeftColor,'color':c.panelBorderLeftColor};
+	}
+
+	c.setColor = function(){
+		return {'color':c.color};
+	}
+
+	c.setIconColor = function(){
+		return {'color':c.iconColor};
+	}
+
+	c.setTabBorderColor = function(){
+		return {'border':'2px solid '+c.tabBorderColor,'color':'#000'};
+	}
+	//end functions to update styling on filter change
+
+	c.trackPage = function() {
+		window.GlideWebAnalytics.trackEvent("Service Catalog", "Catalog My Requests", "My Requests Widget Loaded");
+	}
+	//start with open tickets
+	c.viewFilter = 'open';
+
+	//get tickets on open/close toggle click
+	c.changeView = function(view) {
+		c.viewFilter = view;
+		window.GlideWebAnalytics.trackEvent("Service Catalog", "Catalog My Requests", "Open/Close Filter Toggled");
+		getTickets($scope.currentFilter,'change_view');
+	}
+
+	//search for tickets
+	c.search = function() {
+		if(c.options.fixed_side_panel == "true"){
+			spUtil.scrollTo('section.page',300);
+		}
+		getTickets($scope.currentFilter,'search');
+	}
+
+	//on keypress, exclusing tab key, if enter key pressed search
+	c.checkEnter = function(event) {
+		if (event.which === 9){
+			return;
+		}
+		if (event.which === 13)
+			c.search();
+	}
+
+	$scope.$watch("filter.filterText",function(newVal,oldVal){
+		if(newVal == "" && oldVal != ""){
+			return getTickets($scope.currentFilter);
+		}
+	});
+
+	//load more tickets
+	c.loadMore = function() {
+		window.GlideWebAnalytics.trackEvent("Service Catalog", "Catalog My Requests", "Show More Clicked");
+		c.fetching = true;
+		getTickets($scope.currentFilter,'fetch_more');
+	}
+
+	//display comments in modal
+	c.getConversation = function(rec){
+		spModal.open({
+			buttons:[],
+			title: 'Comments - '+rec.number,
+			widget: ticketConversationWidgetID, 
+			widgetInput: {sys_id:rec.sys_id,table:rec.table,btnLabel:"Submit"}
+		});
+	}
+
+	//get tickets on tab click
+	c.getTickets = function(requestFilter){
+		if(c.loading){
+			return;
+		}
+		$scope.filter.filterText = "";
+		getTickets(requestFilter);
+	};
+
+	//get tickets for first tab on load
+	if(c.data.requestFilters.length > 0){
+		var filter = c.data.requestFilters[0];
+		var cookieFilter = getCookieSelectedFilter();
+		if(cookieFilter){
+			filter = cookieFilter;
+			filter.selected_filter = true;
+		}else{
+			c.data.requestFilters[0].selected_filter = true
+		}
+
+		getTickets(filter);
+	}
+
+	function getCookieSelectedFilter(){
+		var answer = null
+		if($cookies.get("selected_filter")){
+			c.data.requestFilters.forEach(function(f){
+				if(f.id == $cookies.get("selected_filter")){
+					answer = f;
+				}
+			});
+		}
+		return answer;
+	}
+
+	//sort tickets by sys_updated_on field desc/asc
+	c.sortTickets = function(){
+		if(c.loading || c.data.request.req_list.length == 0){
+			return;
+		}
+		c.isDesc = !c.isDesc; 
+		getTickets($scope.currentFilter);
+	}
+
+	//route to ticket
+	c.go = function(item){
+		$location.search("id="+item.url.id+"&table="+item.url.table+"&sys_id="+item.url.sys_id)
+	}
+
+	$scope.isDisabled = function(){
+		return isDisabled();
+	}
+
+	function isDisabled(){
+		return (c.isLoading || (c.data.request.req_list.length == 0 && $scope.filter.filterText == ""));
+	}
+
+	function getTickets(requestFilter,action){
+		if(requestFilter){
+			if(action != 'fetch_more'){
+				c.loading = true;
+			}
+			$scope.currentFilter = requestFilter;
+			var config = {request_filter_id:requestFilter.id,
+										action:action || "getData",
+										view:c.viewFilter,
+										search_text:$scope.filter.filterText,
+										isDesc:c.isDesc,
+										lastLimit: c.data.lastLimit
+									 };
+			c.server.get(config).then(function(response){
+				c.data = response.data;
+				var filter = c.data.requestFilters[0];
+				var cookieFilter = getCookieSelectedFilter();
+				if(cookieFilter){
+					filter = cookieFilter;
+					filter.selected_filter = true;
+				}else{
+					c.data.requestFilters[0].selected_filter = true
+				}
+				if(action != 'fetch_more'){
+					$timeout(function(){
+						c.loading = false;
+					},500);
+				}
+				if(action == 'fetch_more'){
+					c.fetching = false;
+				}
+			});
+		}
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.my-tickets-wrapper{
+  .panel-heading{
+    background:#fafafa;
+  }
+}
+
+div[class="request-filter-pill-wrapper not-side-panel"]{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.request-filter{
+  display:inline-block;
+  padding:5px 15px;
+  border:2px solid #e6e6e6;
+  border-radius:3px;
+  color:#4B515D;
+  margin:0 5px;
+  transition:all 0.30s ease;
+  font-weight:bold;
+
+  &amp; .badge{
+    position: relative;
+    top: -1px;
+    background:#ccc;
+  }
+
+  &amp;:hover{
+    color:#000;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.12);
+  }
+
+  &amp;.active{
+    background:#fff;
+    border:2px solid $brand-primary;
+
+    &amp; .badge{
+      background:#4a4a4a;
+    }
+  }
+
+  &amp;:focus{
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.20);
+  }
+}
+
+.activity-panel{
+  border-left:4px solid $brand-primary;
+
+  &amp; .primary-display{
+    font-weight:600;
+    font-size:1.5rem;
+  }
+}
+
+.activity-panel-heading{
+  display:flex;
+  justify-content:space-between;
+}
+
+.activity-panel-body{
+  display:flex;
+  align-items:center;
+}
+
+.activity-panel-body .flexy-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+
+  &amp; .activity-panel-details{
+    display:flex;
+    flex-direction:column;
+  }
+}
+
+.activity-panel-link-wrapper{
+  margin-left:auto;
+
+  a{
+    border:thin solid #e6e6e6;
+    transition:box-shadow .5s;
+    color:#212121;
+    &amp;:hover{
+      color:#000;
+      box-shadow: 0 0 10px 2px rgba(0,0,0,.05);
+    }
+  }
+}
+
+.search-sort-wrapper{
+  display:flex;
+
+  &amp; div:first-child{
+    flex-grow:1;
+    padding-right:10px;
+  }
+
+  &amp; .filter-buttons{
+    margin-left:auto;
+    flex-shrink:0;
+  }
+
+  &amp; [tabindex]:focus{
+    outline:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+}
+
+.flex-space-between{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.panel-body{
+  position:relative;
+}
+
+.divider{
+  position:absolute;
+  width:100%;
+  height:2px;
+  background:#e6e6e6;
+  left:0;
+  margin:10px 0;
+}
+
+.btn-show-more {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.filler-element{
+  height:100px;
+  background:#e6e6e6;
+}
+
+.disabled{
+  cursor:not-allowed;
+  color:#EBEBE4;
+}
+
+.item-img{
+  height:50px;
+  width:50px;
+}
+
+.activity-panel-updated-wrapper{
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+/* open/close button toggle color*/
+.btn-toggle{
+  .btn-primary{
+    background-color:#4a4a4a;
+    border-color:#4a4a4a;
+  }
+  .btn:focus,.btn:active {
+    outline: 1px solid #4a4a4a !important;
+    box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+  }
+}
+
+.is-fixed{
+  position:fixed;
+  max-height: 100%;
+  width: 18%;
+}
+
+@media screen and (max-width:992px){
+  .request-filter{
+    margin:5px 0;
+  }
+
+  .is-fixed {
+    position: relative;
+    width: 100%;
+  }
+
+  .activity-panel-body{
+    flex-direction:column;
+  }
+  .activity-panel-body .flexy-wrapper{
+    flex-direction:column;
+    align-items:stretch
+  }
+
+  .activity-panel-link-wrapper{
+    margin-left:0;
+    width:100%;
+    a{
+      display:inline-block;
+      width:100%;
+      margin-top:10px;
+      span{
+        justify-content:center;
+      }
+    }
+  }
+
+  .search-sort-wrapper{
+    flex-wrap:wrap;
+
+    &amp; div:first-child{
+      padding-right:0;
+    }
+  }
+
+  .filter-buttons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}
+
+svg{
+  fill:$text-muted;
+}
+
+#icon-remove-circle {
+  position: absolute;
+  right: 53px;
+  top: 0;
+  z-index:22222;
+  bottom: 0;
+  height: 14px;
+  margin: auto;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-button{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width:768px){
+  .request-filter{
+    width:100%;
+  }
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description>Widget to display an end users tickets leveraging the oob 'My Request Filters' configurations</description>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pz-my-tickets</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+	scope.setActive = function(evt){
+		element.find(".active").removeClass("active");
+		element.find(evt.target).addClass("active");
+	}
+}]]></link>
+        <name>PZ My Tickets</name>
+        <option_schema>[{"name":"title","section":"Presentation","default_value":"","label":"Title","type":"string"},{"name":"title_text_align_class","section":"Presentation","default_value":"text-left","label":"Title Text Align Class","type":"string"},{"hint":"Number of items per page","name":"items_per_page","section":"Behavior","default_value":"15","label":"Items per page","type":"integer"},{"name":"template","section":"Presentation","default_value":"custom_default_my_tickets_template_v1","label":"Template","type":"choice","choices":[{"label":"custom_default_my_tickets_template_v1","value":"custom_default_my_tickets_template_v1"},{"label":"custom_my_tickets_left_side_filter_template_v1","value":"custom_my_tickets_left_side_filter_template_v1"},{"label":"custom_my_tickets_right_side_filter_template_v1","value":"custom_my_tickets_right_side_filter_template_v1"}]},{"hint":"","name":"request_filter_options","section":"Presentation","default_value":"","label":"Request Filter Options","type":"string"},{"name":"show_request_item_picture","section":"Behavior","default_value":"true","label":"Show Request Item Picture","type":"boolean"},{"name":"hide_state_from_panel_header","section":"Behavior","default_value":"false","label":"Hide state from panel header","type":"boolean"},{"name":"fixed_side_panel","section":"Behavior","default_value":"false","label":"Fixed Side Panel","type":"boolean"},{"name":"ticket_conversation_widget_id","section":"Presentation","default_value":"widget-ticket-conversation","label":"Ticket Conversation Widget ID","type":"string"},{"name":"view_ticket_link_text","section":"Presentation","default_value":"View Ticket","label":"View Ticket Link Text","type":"string"},{"name":"view_ticket_link_style","section":"Presentation","default_value":"color:#4a4a4a;","label":"View Ticket Link Style","type":"string"},{"name":"show_icon","section":"other","default_value":"false","label":"Show Filter Icon","type":"boolean"},{"name":"comment_link_text","section":"other","default_value":"Add Comment","label":"Comment Link Text","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	data.page_id = $sp.getParameter("id");
+	data.fillers = [];
+	var fillerLimit = 10;
+	for (var i = 1; i <= fillerLimit; i++) {
+		data.fillers.push(i);
+	}
+	data.no_filters = false;
+	data.requestFilters = [];
+
+	//get all the filters configured for portal from request_filter table
+	var rq_filter = new GlideRecord('request_filter');
+	rq_filter.addActiveQuery();
+	if (rq_filter.isValidField('applies_to'))
+		rq_filter.addQuery('applies_to', 1).addOrCondition('applies_to', 10);
+	rq_filter.query();
+	while(rq_filter.next()) {
+		var tableName = rq_filter.getValue("table");
+		if (rq_filter.isValidField('table'))
+			data.requestFilters.push({label:rq_filter.getValue("title"),table:tableName,filter:rq_filter.getValue("filter"),id:rq_filter.getUniqueValue()});
+	}
+	//IMPORTANT - request filter options must be entered in JSON format or else errors will appear
+	if(JSUtil.notNil(options.request_filter_options)){
+		var requestFilterOptions;
+		try{
+			requestFilterOptions = JSON.parse(options.request_filter_options);
+		}catch(error){
+			gs.log(error,'my-tickets-widget-service-portal');
+			requestFilterOptions = [];
+		}
+
+		if(!Array.isArray(requestFilterOptions)){
+			requestFilterOptions = [];
+		}
+
+		data.requestFilters.forEach(function(f){
+			f.order = 1000;
+			requestFilterOptions.forEach(function(o){
+				if(f.table == o.table){
+					f.order = o.order;
+					f.tabBorderColor = o.tabBorderColor;
+					f.panelBorderLeftColor = o.panelBorderLeftColor;
+					f.color = o.color;
+					f.iconColor = o.iconColor;
+					f.icon = o.icon;
+
+					if(o.include_open_badge_count){
+						f.count = getMyRequestSysIds(f.id).count;
+					}
+				}
+			})
+		});
+
+		//lets sort the filters before presenting to an end user if options
+		data.requestFilters.sort(function(a,b){
+			return a.order - b.order;
+		});
+
+	}
+
+	if(data.requestFilters.length == 0){
+		data.no_filters = true;
+		return;
+	}
+
+	var localInput = input; //to safeguard pullution of "input" via BR or other scripts
+
+	var alsoRequest = false;
+
+	function getField(gr, name) {
+		var f = {};
+		var id = gr.getUniqueValue();
+		gr = new GlideRecord(gr.getRecordClassName());
+		gr.get(id);
+		f.display_value = gr.getDisplayValue(name);
+		f.value = gr.getValue(name);
+		var ge = gr.getElement(name);
+		if (ge) {
+			var ed = ge.getED();
+			if (ed)
+				f.type = ed.getInternalType();
+			f.label = ge.getLabel();
+		}
+		return f;
+	}
+
+	function getMyRequestSysIds(filter_id,isDesc) {
+		var ids = {};
+		var count = 0;
+		var rq_filter = new GlideRecord('request_filter');
+		rq_filter.addQuery("sys_id",filter_id);
+		rq_filter.query();
+		if(rq_filter.next()) {
+			var tableName = rq_filter.table_name;
+			if (rq_filter.isValidField('table'))
+				tableName = rq_filter.table;
+			var gr = new GlideRecord(tableName);
+			gr.addQuery(rq_filter.filter);
+			if(isDesc){
+				gr.orderByDesc("sys_updated_on");
+			}else{
+				gr.orderBy("sys_updated_on");
+			}
+			gr.query();
+			if (tableName == 'sc_request')
+				alsoRequest = true;
+			while(gr.next()) {
+				var portalSettings = {};
+				portalSettings.page = rq_filter.portal_page.nil()? '' : rq_filter.portal_page.getDisplayValue() + '';
+				portalSettings.primary_display = rq_filter.primary_display.nil()? '': rq_filter.primary_display + '';
+				portalSettings.secondary_displays = rq_filter.secondary_display.nil()? '': rq_filter.secondary_display + '';
+				ids[gr.sys_id + ''] = portalSettings;
+				if(gr.active){
+					count+=1;
+				}
+			}
+		}
+		ids.count = count;
+		return ids;
+	}
+
+	// retrieve the request's
+	var myRequestMap = getMyRequestSysIds(input.request_filter_id,input.isDesc);
+	var taskIDs = Object.keys(myRequestMap);
+
+	var gr = new GlideRecordSecure('task');
+	if (localInput && localInput.view === 'open') 
+		gr.addActiveQuery();
+	else if (localInput && localInput.view === 'close')
+		gr.addQuery('active', 0);
+	else
+		gr.addActiveQuery();
+
+	if(input.isDesc){
+		gr.orderByDesc("sys_updated_on");
+	}else{
+		gr.orderBy("sys_updated_on");
+	}
+	if (localInput && localInput.search_text) {
+		var req = [];
+		var task = new GlideRecordSecure('task');
+		task.addQuery('123TEXTQUERY321', localInput.search_text);
+		if (localInput && localInput.view === 'open') 
+			task.addQuery('active', 1);
+		else if (localInput && localInput.view === 'close')
+			task.addQuery('active', 0);
+		else
+			task.addQuery('active', 1);
+		task.addQuery('sys_id', taskIDs);
+		if(input.isDesc){
+			task.orderByDesc("sys_updated_on");
+		}else{
+			task.orderBy("sys_updated_on");
+		}
+		task.query();
+
+		while(task.next())
+			req.push(task.getUniqueValue());
+
+		if (alsoRequest) {
+			var ritmGR = new GlideRecord('sc_req_item');
+			if (localInput && localInput.view === 'open') 
+				ritmGR.addQuery('request.active', 1);
+			else if (localInput && localInput.view === 'close')
+				ritmGR.addQuery('request.active', 0);
+			else
+				ritmGR.addQuery('request.active', 1);
+			ritmGR.addQuery('123TEXTQUERY321', localInput.search_text);
+			ritmGR.addQuery('request.sys_id', taskIDs);
+			if(input.isDesc){
+				ritmGR.orderByDesc("sys_updated_on");
+			}else{
+				ritmGR.orderBy("sys_updated_on");
+			}
+			ritmGR.query();
+			while(ritmGR.next())
+				req.push(ritmGR.getValue('request'));
+		}
+		gr.addQuery('sys_id', req);
+	}
+	else 
+		gr.addQuery('sys_id', taskIDs);
+	gr.query();
+
+	data.request = {};
+
+	data.request.req_list = [];
+	var recordIdx = 0;	
+	var limit = options.items_per_page? options.items_per_page : 15;
+	if (localInput && localInput.action == 'fetch_more')
+		data.lastLimit = localInput.lastLimit + limit;
+	else
+		data.lastLimit = limit;
+
+	data.hasMore = false;
+	while (recordIdx != data.lastLimit && gr.next()) {
+		var portalSettings = myRequestMap[gr.getUniqueValue()];
+		if (typeof portalSettings == 'undefined')
+			portalSettings = {};
+
+		var record = {};
+		record.sys_id = gr.getValue('sys_id');
+		var ritm;
+		if (gr.getRecordClassName() == 'sc_request') {
+			ritm = new GlideRecord("sc_req_item");
+			ritm.addQuery("request", gr.getUniqueValue());
+			if(input.isDesc){
+				ritm.orderByDesc("sys_updated_on");
+			}else{
+				ritm.orderBy("sys_updated_on");
+			}
+			ritm.query();
+			if (ritm.getRowCount() == 0)
+				continue;
+			if (ritm.getRowCount() > 1)
+				record.display_field = gs.getMessage("{0} requested items", ritm.getRowCount());
+			else {
+				ritm.next();
+				record.display_field = ritm.cat_item.getDisplayValue() || ritm.getDisplayValue("short_description");
+				record.variables = new GlobalServiceCatalogUtil().getVariablesForTask(ritm, true);
+				record.picture = ritm.cat_item.picture.getDisplayValue();
+			}
+			record.url = { id: portalSettings.page? portalSettings.page: 'sc_request', table: 'sc_request', sys_id: record.sys_id};
+		} else {
+			record.display_field = portalSettings.primary_display ? getField(gr, portalSettings.primary_display).display_value : getField(gr, 'number').display_value;
+			record.url = { id: portalSettings.page? portalSettings.page :'ticket', table: gr.getRecordClassName(), sys_id: record.sys_id};
+		}
+		if (portalSettings.secondary_displays) {
+			record.secondary_displays = [];
+			portalSettings.secondary_displays.split(",").forEach(function (sDisplay){
+				record.secondary_displays.push(getField(gr, sDisplay));
+			});
+		}
+		else 
+			record.secondary_displays = getField(gr, 'short_description');
+
+		if(gr.getRecordClassName() == "sc_req_item"){
+			ritm = new GlideRecord("sc_req_item");
+			if(ritm.get(gr.getUniqueValue())){
+				record.picture = ritm.cat_item.picture.getDisplayValue();
+				record.variables = new GlobalServiceCatalogUtil().getVariablesForTask(ritm, true);
+			}
+		}
+		record.class_name = gr.getRecordClassName();
+		record.updated_on = gr.getValue('sys_updated_on');
+		record.state = gr.getDisplayValue('state');
+		record.number = gr.getValue("number");
+		record.table = gr.getTableName();
+		if((recordIdx !== 0) && (data.lastLimit - limit === recordIdx))
+			record.highlight = true;
+
+		data.request.req_list.push(record);
+		recordIdx++;
+	}
+
+	if (gr.next())
+		data.hasMore = true;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-08 22:26:25</sys_created_on>
+        <sys_id>00c39d452f2ed0109f6f97eef699b651</sys_id>
+        <sys_mod_count>450</sys_mod_count>
+        <sys_name>PZ My Tickets</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_00c39d452f2ed0109f6f97eef699b651</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:41</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.no_filters">
+  <div class="alert alert-info">
+    No active request filters. Please configure and activate filters within the 'My Request Filters' module for Service Portal.
+  </div>
+</div>
+<div class="dropdown-button" ng-if='options.show_icon'>
+  <a class="dropdown-toggle arrow-none card-drop" ng-click='c.toggle()' aria-haspopup="true" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z"/></svg>
+  </a>
+</div>
+<div class="my-tickets-wrapper" ng-if="!data.no_filters">
+  <h1 ng-if='options.title' ng-class="options.title_text_align_class">
+    {{ options.title }}
+  </h1>
+
+  <div ng-if="options.template">
+    <div ng-include="options.template"></div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e5344be1e0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_00c39d452f2ed0109f6f97eef699b651</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:48:41</sys_created_on>
+        <sys_id>614918d90745011091b7f7208c1ed002</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:48:41</sys_updated_on>
+    </sys_claim>
+</record_update>

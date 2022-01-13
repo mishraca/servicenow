@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$wds-op-homeLists-tabHeaderColor: $brand-primary;
+$wds-op-homeLists-tabHeaderColorSelected: $primary-major-color;
+
+$wds-op-homeLists-countBg: $secondary-major-color;
+$wds-op-homeLists-countColor: white;
+$md-box-shadow:rgba(0 ,0 ,0, 20%) 0.1rem 0.3rem 0.7rem !default;
+$md-list-item-color:rgb(247,249,254) !default;
+
+
+.op_home_tickets {
+  margin-top: 20px;
+  md-card{
+    border-radius:0.7rem;
+  }
+
+  @media (min-width: 992px){
+
+    .op_ticket_list_item .line-main {
+      grid-template-areas:
+        "short_description short_description a1 b1 c1"
+        "type number a2 b2 c2";
+      grid-template-columns: fit-content(20%) 1fr 1fr 1fr 1fr;
+      grid-template-rows: 50% 50%;
+    }
+  }
+
+  .op_ticket_list_item .line-main {
+    display: grid;
+    align-items: center;
+    min-height: 80px;
+    grid-row-gap: 5px;
+    border-radius: .7rem;
+    background:inherit;
+    padding: 10px 19px;
+    position: relative;
+    overflow: hidden;
+    font-size: 12px;
+
+    .short_description{
+      font-size:14px;
+    }
+
+    .type{
+      font-size:10px;
+    }
+  }
+
+  ul.nav {
+    border: none;
+    margin-bottom: 20px;
+
+    li {
+      font-size: 18px;
+      padding: 0 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &amp;:first-of-type {
+        padding-left: 0;
+        a {
+          padding-left: 0;
+        }
+      }
+
+      &amp;:not(:last-of-type):after {
+        content: " ";
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        background-color: #d8d8d8;
+        right: 0;
+        top: 1px;
+      }
+
+      &amp;.active {
+        h3 {
+          font-weight: 700;
+          color: $wds-op-homeLists-tabHeaderColorSelected;
+        }
+      }
+
+      a {
+        border: none;
+        padding-top: 0;
+        padding-bottom: 0;
+        background: none;
+      }
+
+      h3 {
+        display: contents;
+        color: $wds-op-homeLists-tabHeaderColor;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+      }
+
+      .label {
+        height: 24px;
+        width: 23px;
+        background: $wds-op-homeLists-countBg;
+        border-radius: 100%;
+        color: $wds-op-homeLists-countColor;
+        font-size: 18px;
+        text-align: center;
+        font-weight: 600;
+        line-height: 23px;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>md_tickets</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>MD Tickets</name>
+        <option_schema>[{"name":"show_my_actions","section":"other","default_value":"false","label":"Show My Actions","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+	var OPU = new MDPortalUtils($sp);
+	var OPTLU = new MDTicketWidgetConfigUtils();
+	var portalGR = $sp.getPortalRecord();
+	
+	data.show_my_approvals=OPU.showMyApprovals();
+	data.show_my_actions=true;
+
+	// Always add my tickets
+	data.my_tickets_widget = $sp.getWidget('md_ticket_list', {
+		list_id: 'tickets',
+		show_filter: true,
+		footer_type: 'view_more',
+		limit: 10,
+		empty_message: gs.getMessage('No tickets found'),
+		default_sorting:{ display: 'Created Recently', value: 'sys_created_on', orderBy: "orderByDesc" },
+		configs: OPTLU.getConfigsForPortal(portalGR.getUniqueValue(), 'tickets')
+	});
+
+	// Only add my actions if the user can see actions
+	if (data.show_my_actions) {
+		data.my_actions_widget = $sp.getWidget('md_ticket_list', {
+			list_id: 'actions',
+			show_filter: true,
+			footer_type: 'view_more',
+			limit: 10,
+			empty_message: gs.getMessage('No actions found'),
+			default_sorting:{ display: 'Nearest Due Date', value: 'due_date', orderBy: "orderBy" },
+			configs: OPTLU.getConfigsForPortal(portalGR.getUniqueValue(), 'actions')
+		});
+	}
+	if(data.show_my_approvals){
+		data.my_approvals_widget = $sp.getWidget('md_ticket_list', {
+			list_id: 'approvals',
+			show_filter: true,
+			footer_type: 'view_more',
+			limit: 10,
+			empty_message: gs.getMessage('No approvals found'),
+			default_sorting:{ display: 'Nearest Due Date', value: 'due_date', orderBy: "orderBy" },
+			configs: OPTLU.getConfigsForPortal(portalGR.getUniqueValue(), 'approvals')
+		});
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2021-10-09 13:59:56</sys_created_on>
+        <sys_id>84be12d20747f01091b7f7208c1ed072</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>MD Tickets</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
+        <sys_update_name>sp_widget_84be12d20747f01091b7f7208c1ed072</sys_update_name>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:01</sys_updated_on>
+        <template><![CDATA[<div class="op_home_tickets"> 
+  <md-tabs  md-dynamic-height>
+    <md-tab label="My Tickets">
+      <md-content>
+        <sp-widget widget="c.data.my_tickets_widget"></sp-widget>
+      </md-content>
+    </md-tab>
+    <md-tab label="My Approvals">
+      <md-content>
+        <sp-widget widget="c.data.my_approvals_widget"></sp-widget>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</claim_owner_scope>
+        <claim_timestamp>17e53450f3e0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_84be12d20747f01091b7f7208c1ed072</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Material Design Portal</previous_claim_name>
+        <previous_claim_scope>6061d05d0705011091b7f7208c1ed0b7</previous_claim_scope>
+        <sys_created_by>chandumishra21@gmail.com</sys_created_by>
+        <sys_created_on>2022-01-13 11:49:01</sys_created_on>
+        <sys_id>a6591cd90745011091b7f7208c1ed0ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
+        <sys_updated_on>2022-01-13 11:49:01</sys_updated_on>
+    </sys_claim>
+</record_update>
