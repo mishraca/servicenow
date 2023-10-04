@@ -5,7 +5,7 @@
         <allow_add_info>false</allow_add_info>
         <allow_not_applicable>false</allow_not_applicable>
         <auto_gen>false</auto_gen>
-        <category display_value="Incident Questionnaire">aeb375d81bb61050dbd0baeccc4bcb4e</category>
+        <category display_value="">aeb375d81bb61050dbd0baeccc4bcb4e</category>
         <cond_question>always</cond_question>
         <condition/>
         <context/>
@@ -14,9 +14,10 @@
         <correct_answer_choice/>
         <correct_answer_template/>
         <correct_answer_yesno>1</correct_answer_yesno>
+        <custom_metric/>
         <datatype>multiplecheckbox</datatype>
         <default_value_field/>
-        <depends_on display_value="What is your issue related to?">6bb379d81bb61050dbd0baeccc4bcb94</depends_on>
+        <depends_on display_value="">6bb379d81bb61050dbd0baeccc4bcb94</depends_on>
         <description/>
         <details/>
         <displayed_when>67b379d81bb61050dbd0baeccc4bcb98</displayed_when>
@@ -52,13 +53,14 @@
         <sys_id>d3b379d81bb61050dbd0baeccc4bcb5e</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>Please select from below symptoms</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>asmt_metric_d3b379d81bb61050dbd0baeccc4bcb5e</sys_update_name>
         <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
         <sys_updated_on>2022-01-13 11:49:05</sys_updated_on>
         <template/>
+        <value_parameters/>
         <weight>10</weight>
     </asmt_metric>
     <sys_translated_text action="delete_multiple" query="documentkey=d3b379d81bb61050dbd0baeccc4bcb5e"/>

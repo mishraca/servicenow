@@ -46,7 +46,7 @@
         <update_guid_history>78b4b5926f700110f384b3e2a25e1567:1602850665</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="1">b4657dd20770011091b7f7208c1ed05a</sys_audit_delete>
+        <sys_audit_delete display_value="">b4657dd20770011091b7f7208c1ed05a</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2022-01-04 10:49:22</sys_created_on>

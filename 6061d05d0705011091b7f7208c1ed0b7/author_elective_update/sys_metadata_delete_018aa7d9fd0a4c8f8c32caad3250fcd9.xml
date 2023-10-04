@@ -143,7 +143,7 @@
         <update_guid_history>12d647d398b81c10813f571dc6e9ef67:-1036963229,9272471b92781c10ac65541fd3f8c521:-257338127,7701cbdb03781c10cd9bee9d74a62f23:707822317,533eba571f781c10144ee3ce3893fb77:1554368659</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="(SLS) Set Requestor's details">e3ecb3670708011091b7f7208c1ed07f</sys_audit_delete>
+        <sys_audit_delete display_value="">e3ecb3670708011091b7f7208c1ed07f</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-12-02 11:06:53</sys_created_on>

@@ -53,7 +53,7 @@
         <update_guid_history>fa2825edfc11581000551c8639c9fdda:1903398072,08376d6de0115810bbbbc1e69e0309d4:-1985010471,2801e169939158103ff5072230b10ae2:1903398072,a385d12119dd1810ba230e0afc4419b6:-1985010471,ebe491edca9d1810ddb3a89ff91c0dba:1568461079</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="software_affected">7d8fb32f0708011091b7f7208c1ed010</sys_audit_delete>
+        <sys_audit_delete display_value="">7d8fb32f0708011091b7f7208c1ed010</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-12-02 11:18:14</sys_created_on>

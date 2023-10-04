@@ -30,6 +30,7 @@ $md-sidebar-bg: #f3f6fd;
 $md-popular-item-card-border-radius: 0.7rem;
 $md-popular-item-card-min-height: 120px;
 $md-sidebar-width: 200px;</css_variables>
+        <dark_theme/>
         <default>false</default>
         <enable_ais>false</enable_ais>
         <enable_favorites>false</enable_favorites>
@@ -47,27 +48,27 @@ $md-sidebar-width: 200px;</css_variables>
          "topbar":"md-toolbar-header",&#13;
          "leftnav":"md-left-nav"&#13;
 }]</quick_start_config>
+        <rtl_enabled>false</rtl_enabled>
         <sc_catalog/>
         <sc_catalog_page display_value="sc_home">fe87a11147132100ba13a5554ee490b9</sc_catalog_page>
         <sc_category_page/>
         <search_application/>
         <search_results_configuration/>
         <sp_chat_queue/>
-        <sp_rectangle_menu display_value="Md Header Menu">5fd10d05db72e01089aab5ec349619d3</sp_rectangle_menu>
-        <sqanda_knowledge_base/>
+        <sp_rectangle_menu display_value="">5fd10d05db72e01089aab5ec349619d3</sp_rectangle_menu>
         <sys_class_name>sp_portal</sys_class_name>
         <sys_created_by>chandralok.m@serviceline.com.au</sys_created_by>
         <sys_created_on>2021-03-05 03:22:42</sys_created_on>
         <sys_id>5c42adc0db76a05089aab5ec34961901</sys_id>
         <sys_mod_count>106</sys_mod_count>
         <sys_name>MDPortal</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sp_portal_5c42adc0db76a05089aab5ec34961901</sys_update_name>
         <sys_updated_by>chandumishra21@gmail.com</sys_updated_by>
         <sys_updated_on>2022-01-13 11:48:48</sys_updated_on>
-        <theme display_value="Angularjs Material Theme">aa8b9588db36a05089aab5ec349619a3</theme>
+        <theme display_value="">aa8b9588db36a05089aab5ec349619a3</theme>
         <title>MDPortal</title>
         <ts_index_group display_value="portal_index_group">2c3e7d1513c93300e618bfd63244b0d7</ts_index_group>
         <url_suffix>md_csm</url_suffix>

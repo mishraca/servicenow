@@ -58,7 +58,7 @@
         <update_guid_history>31a4ce3ecb0bb410bac18e12ff37ef22:-2095835414,16d3f9da6f03f01012334b74366d4994:-571314564,30d1261d61762410f27b706f45a940bc:-1896004984,758d8a19a236241031bf4fbc146bcbdc:-999365496,72868a91e1362410b7dc3a6cd9d1fa26:2092158229</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="modules.Angularjs Material Theme">e726027e070bb41091b7f7208c1ed071</sys_audit_delete>
+        <sys_audit_delete display_value="">e726027e070bb41091b7f7208c1ed071</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-10-11 01:29:49</sys_created_on>

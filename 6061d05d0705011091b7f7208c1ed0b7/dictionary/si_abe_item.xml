@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="Branding Item" max_length="40" name="si_abe_item" sizeclass="44" type="collection">
-        <element label="CSS selector" max_length="256" name="css_selector" type="string"/>
-        <element attributes="edge_encryption_enabled=true" default="100" label="Order" mandatory="true" max_length="40" name="order" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" choice="3" default="color" label="Type" mandatory="true" max_length="40" name="type" type="choice">
-            <choice/>
-        </element>
-    </element>
-</database>

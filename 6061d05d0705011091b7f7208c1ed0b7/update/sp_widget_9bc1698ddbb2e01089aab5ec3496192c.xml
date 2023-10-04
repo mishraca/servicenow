@@ -47,7 +47,7 @@
         <sys_id>9bc1698ddbb2e01089aab5ec3496192c</sys_id>
         <sys_mod_count>46</sys_mod_count>
         <sys_name>MD Autocomplete</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sp_widget_9bc1698ddbb2e01089aab5ec3496192c</sys_update_name>

@@ -2,7 +2,7 @@
     <m2m_sp_portal_search_source action="INSERT_OR_UPDATE">
         <order>100</order>
         <sp_portal display_value="MDPortal">5c42adc0db76a05089aab5ec34961901</sp_portal>
-        <sp_search_source display_value="Documents">f05f16f4971332007a97a23363ac4aa8</sp_search_source>
+        <sp_search_source display_value="">f05f16f4971332007a97a23363ac4aa8</sp_search_source>
         <sys_class_name>m2m_sp_portal_search_source</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2022-01-13 12:38:21</sys_created_on>

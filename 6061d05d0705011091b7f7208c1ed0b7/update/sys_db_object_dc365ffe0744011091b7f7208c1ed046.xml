@@ -9,7 +9,6 @@
         <create_access>false</create_access>
         <create_access_controls>true</create_access_controls>
         <delete_access>false</delete_access>
-        <extension_model/>
         <is_extendable>false</is_extendable>
         <label>Variable</label>
         <live_feed_enabled>false</live_feed_enabled>
@@ -18,16 +17,14 @@
         <provider_class/>
         <read_access>true</read_access>
         <scriptable_table>false</scriptable_table>
-        <super_class display_value="Branding Item" name="si_abe_item">c485b4fedb3263003af8cd05149619ba</super_class>
-        <sys_class_code/>
+        <super_class display_value="label" name="si_abe_item">c098bbeb2f65f11011862e5df699b6d8</super_class>
         <sys_class_name>sys_db_object</sys_class_name>
-        <sys_class_path/>
         <sys_created_by>dylan.lindgren@snc</sys_created_by>
         <sys_created_on>2019-01-08 04:37:30</sys_created_on>
         <sys_id>dc365ffe0744011091b7f7208c1ed046</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Variable</sys_name>
-        <sys_package display_value="Advanced Branding Editor" source="4d3b6cb6db3263003af8cd0514961928">4d3b6cb6db3263003af8cd0514961928</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sys_db_object_dc365ffe0744011091b7f7208c1ed046</sys_update_name>

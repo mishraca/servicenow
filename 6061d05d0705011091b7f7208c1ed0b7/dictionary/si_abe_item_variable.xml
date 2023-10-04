@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="si_abe_item" label="Variable" max_length="40" name="si_abe_item_variable" sizeclass="39" type="collection">
+    <element attributes="update_synch=true" db_object_id="dc365ffe0744011091b7f7208c1ed046" extends="si_abe_item" label="Variable" max_length="40" name="si_abe_item_variable" type="collection">
         <element label="SASS variable" mandatory="true" max_length="128" name="sass_variable" type="string"/>
     </element>
 </database>

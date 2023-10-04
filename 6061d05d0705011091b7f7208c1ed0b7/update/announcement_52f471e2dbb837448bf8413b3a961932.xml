@@ -16,12 +16,6 @@
         <public>true</public>
         <roles/>
         <show_for_unauthenticated_users_only>false</show_for_unauthenticated_users_only>
-        <sn_communities_announcement_type/>
-        <sn_communities_forums/>
-        <sn_communities_notification>false</sn_communities_notification>
-        <sn_communities_notification_sent>false</sn_communities_notification_sent>
-        <sn_communities_portals/>
-        <sn_communities_selected_forums/>
         <summary>University information in regard to the novel coronavirus</summary>
         <sys_class_name>announcement</sys_class_name>
         <sys_created_by>Nathan.Tenaglia@utas.edu.au</sys_created_by>
@@ -29,7 +23,7 @@
         <sys_id>52f471e2dbb837448bf8413b3a961932</sys_id>
         <sys_mod_count>4</sys_mod_count>
         <sys_name>COVID-19</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>announcement_52f471e2dbb837448bf8413b3a961932</sys_update_name>

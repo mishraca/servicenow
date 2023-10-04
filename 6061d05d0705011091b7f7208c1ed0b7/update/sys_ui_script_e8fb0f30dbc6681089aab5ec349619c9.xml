@@ -3,6 +3,7 @@
         <active>false</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>Rippler</name>
         <script><![CDATA[(function($) {
   "use strict";
@@ -185,7 +186,7 @@
         <sys_id>e8fb0f30dbc6681089aab5ec349619c9</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Rippler</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sys_ui_script_e8fb0f30dbc6681089aab5ec349619c9</sys_update_name>

@@ -7,7 +7,7 @@
         <applies_target_record>true</applies_target_record>
         <applies_to>item</applies_to>
         <catalog_conditions>IO:f6553df7db05985067c736bc7c9619f4=incident^EQ</catalog_conditions>
-        <catalog_item display_value="Support Form">bb81fd33db05985067c736bc7c961905</catalog_item>
+        <catalog_item display_value="">bb81fd33db05985067c736bc7c961905</catalog_item>
         <conditions/>
         <description/>
         <global>true</global>
@@ -17,6 +17,7 @@
         <model_table/>
         <on_load>true</on_load>
         <order>1</order>
+        <published_ref/>
         <reverse_if_false>true</reverse_if_false>
         <run_scripts>false</run_scripts>
         <script_false><![CDATA[function onCondition() {
@@ -36,7 +37,7 @@
         <sys_mod_count>12</sys_mod_count>
         <sys_name>Incident</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>catalog_ui_policy_5f9000eddb551810f941065bd396194f</sys_update_name>

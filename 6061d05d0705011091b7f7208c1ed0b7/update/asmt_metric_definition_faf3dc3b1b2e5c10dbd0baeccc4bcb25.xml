@@ -13,7 +13,7 @@
         <sys_id>faf3dc3b1b2e5c10dbd0baeccc4bcb25</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Outside office (I am using VPN)</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>asmt_metric_definition_faf3dc3b1b2e5c10dbd0baeccc4bcb25</sys_update_name>

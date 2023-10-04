@@ -3,6 +3,7 @@
         <active>false</active>
         <description/>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>chartJS</name>
         <script><![CDATA[/*!
  * Chart.js
@@ -25,7 +26,7 @@ B=b+N),R=W?a.right-B:a.left+B;var E=a.getPixelForTick(n);E+=i.aliasPixel(h),L=a.
         <sys_id>b7eede99db76241089aab5ec349619eb</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>chartJS</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sys_ui_script_b7eede99db76241089aab5ec349619eb</sys_update_name>

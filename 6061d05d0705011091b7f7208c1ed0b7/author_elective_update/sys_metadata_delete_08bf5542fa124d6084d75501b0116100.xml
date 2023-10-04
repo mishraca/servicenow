@@ -43,7 +43,7 @@
         <update_guid_history>f436ccdffa540510254303dc25eec941:-684564692</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="1">d5ff2e5d07bc811091b7f7208c1ed01e</sys_audit_delete>
+        <sys_audit_delete display_value="">d5ff2e5d07bc811091b7f7208c1ed01e</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2022-01-01 12:31:19</sys_created_on>

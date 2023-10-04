@@ -52,7 +52,7 @@
         <update_guid_history>0558f996ffe1589000ceaeba61f4c159:-1912409029,f6978eedc4d158104d83f78db466f3e1:1731894365</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="Catalog Name">849f372f0708011091b7f7208c1ed040</sys_audit_delete>
+        <sys_audit_delete display_value="">849f372f0708011091b7f7208c1ed040</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-12-02 11:18:23</sys_created_on>

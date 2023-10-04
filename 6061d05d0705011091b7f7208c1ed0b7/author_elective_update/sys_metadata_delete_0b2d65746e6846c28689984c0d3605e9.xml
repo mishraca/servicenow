@@ -74,7 +74,7 @@
         <update_guid_history>48e0d4c7720c01106977436d536a7a8c:-1891206335,edd094c7470c0110cf569888ab2c50b9:-1968540989,6f22b22e484374106956d3003924ba6c:1702994134,1a003a2aab437410131829a9ee30dfe6:1766806680,40dea6e29443741028a650dc91ea72ad:-2141844154,c5dc66aa4b037410ddcefdbdf41ca751:283914901,d292958132b2e01036a239e2cbdbb750:1702994134,3d0015c59272e010aca103b2bf3edb26:-829274158,729f09854572e0107714c7f296fa5e19:-572757879,ea0a0985b372e01074ceaf8c1fa7fb15:1668876998,2e89010d4f72e0106febffda45d1594a:1287818717,d379cdc9bb72e01064bdf9df86ce3852:-2133166211</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="menuTemplateMd">08aad0c7074c011091b7f7208c1ed02a</sys_audit_delete>
+        <sys_audit_delete display_value="">08aad0c7074c011091b7f7208c1ed02a</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-11-30 05:21:10</sys_created_on>

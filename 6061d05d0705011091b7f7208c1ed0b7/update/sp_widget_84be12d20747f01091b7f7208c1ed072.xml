@@ -185,7 +185,7 @@ $md-list-item-color:rgb(247,249,254) !default;
         <sys_id>84be12d20747f01091b7f7208c1ed072</sys_id>
         <sys_mod_count>17</sys_mod_count>
         <sys_name>MD Tickets</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sp_widget_84be12d20747f01091b7f7208c1ed072</sys_update_name>

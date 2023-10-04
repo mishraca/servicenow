@@ -2,15 +2,16 @@
     <sp_row action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
+        <semantic_tag/>
         <sp_column/>
-        <sp_container display_value="MD Catalog Categories - Container 1">3436ccdf0754051091b7f7208c1ed04c</sp_container>
+        <sp_container display_value="">3436ccdf0754051091b7f7208c1ed04c</sp_container>
         <sys_class_name>sp_row</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-12-13 08:46:07</sys_created_on>
         <sys_id>f436ccdf0754051091b7f7208c1ed04e</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>1</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sp_row_f436ccdf0754051091b7f7208c1ed04e</sys_update_name>

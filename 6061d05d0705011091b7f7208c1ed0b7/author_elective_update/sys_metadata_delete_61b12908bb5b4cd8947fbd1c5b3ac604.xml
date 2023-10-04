@@ -43,7 +43,7 @@
         <update_guid_history>6eb9a0276a1485105cde9ee9c8ca471e:1291886947,6867a0428d8f301036b1e77ffb0a3b88:2091654373,9f596c89360f60501b38881248c0c04a:356466973,c0994c8fc436a81050565ac22ad84c49:-163186270,0dfb1b55fe7a2410a7b421ad26e0d380:-51520746,a52925c89876a05052bced8e6c7d2053:356466973</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="2">32478b4c072c011091b7f7208c1ed025</sys_audit_delete>
+        <sys_audit_delete display_value="">32478b4c072c011091b7f7208c1ed025</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>chandumishra21@gmail.com</sys_created_by>
         <sys_created_on>2021-12-16 06:45:11</sys_created_on>

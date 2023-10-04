@@ -3,6 +3,7 @@
         <active>true</active>
         <description>Left Nav Slider Service and Directive</description>
         <global>false</global>
+        <ignore_in_now_experience>false</ignore_in_now_experience>
         <name>leftNavSlider</name>
         <script><![CDATA[angular.module('leftNavSlider', [])
 	.directive('main', function (leftNavSideBar) {
@@ -98,7 +99,7 @@
         <sys_id>ebc671b14f0beb0005be4d6e0210c78b</sys_id>
         <sys_mod_count>10</sys_mod_count>
         <sys_name>leftNavSlider</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>sys_ui_script_ebc671b14f0beb0005be4d6e0210c78b</sys_update_name>

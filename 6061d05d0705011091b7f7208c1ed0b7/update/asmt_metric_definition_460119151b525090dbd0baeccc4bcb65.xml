@@ -13,7 +13,7 @@
         <sys_id>460119151b525090dbd0baeccc4bcb65</sys_id>
         <sys_mod_count>4</sys_mod_count>
         <sys_name>Devices/Hardware</sys_name>
-        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_package display_value="Material Design Portal" source="6061d05d0705011091b7f7208c1ed0b7">6061d05d0705011091b7f7208c1ed0b7</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>asmt_metric_definition_460119151b525090dbd0baeccc4bcb65</sys_update_name>

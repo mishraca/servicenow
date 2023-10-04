@@ -2,7 +2,6 @@
     <var_dictionary action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
-        <array_denormalized>false</array_denormalized>
         <attributes/>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
@@ -30,6 +29,7 @@
         <element>u_auto_generated_password</element>
         <element_reference>false</element_reference>
         <foreign_database/>
+        <formula/>
         <function_definition/>
         <function_field>false</function_field>
         <help/>
@@ -53,16 +53,14 @@
         <reference_qual/>
         <reference_qual_condition/>
         <reference_type/>
-        <sizeclass/>
         <spell_check>false</spell_check>
         <staged>false</staged>
         <sys_class_name>var_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-10-19 20:07:00</sys_created_on>
         <sys_id>c0c75b5b9f710300e78d317f842e70b0</sys_id>
-        <sys_mod_count>3</sys_mod_count>
         <sys_name>Auto generated password</sys_name>
-        <sys_package display_value="Password Reset" source="com.glideapp.password_reset">9a5eadac07171010cf27f19d7c1ed091</sys_package>
+        <sys_package display_value="Password Reset" source="com.glideapp.password_reset">f0e7087454f02110a866ac4e61313127</sys_package>
         <sys_policy/>
         <sys_scope display_value="Material Design Portal">6061d05d0705011091b7f7208c1ed0b7</sys_scope>
         <sys_update_name>var_dictionary_c0c75b5b9f710300e78d317f842e70b0</sys_update_name>
@@ -75,6 +73,7 @@
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>simple</use_reference_qualifier>
         <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
